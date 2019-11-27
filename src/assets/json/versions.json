@@ -1,0 +1,12 @@
+{
+    "versions": [
+        {
+            "version": "Hyrax_1.15",
+            "numReleases": 2
+        },
+        {
+            "version": "Hyrax_1.16",
+            "numReleases": 0
+        }
+    ]
+}
