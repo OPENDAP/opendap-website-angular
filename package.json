@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@types/showdown": "^1.9.3",
+    "angular-cli-ghpages": "^0.6.0",
     "angular-sanitize": "^1.7.9",
     "ng-showdown": "^1.1.0",
     "rxjs": "~6.4.0",
