@@ -13,6 +13,8 @@ export class BoilerplateComponent implements OnInit {
 
   constructor(private dataReaderService: DataReaderService) { }
 
+  panelOpenState: Boolean = false;
+
   boilerplate: any;
 
   installation: any;
