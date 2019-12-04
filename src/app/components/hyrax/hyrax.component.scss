@@ -1,0 +1,61 @@
+.page-padding {
+    max-width: 800px;
+}
+
+.body-div {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro-section {
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+}
+
+.intro-paragraph {
+    font-size: 18px;
+}
+
+.benefits-section {
+    color: white;
+    padding-top: 5vh;
+    padding-bottom: 7vh;
+    background: cornflowerblue;
+}
+
+.benefits-subsection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4em;
+    text-align: center;
+}
+
+.text-left-logo-right {
+    display: grid;
+    grid-template-columns: 1fr 0fr;
+    column-gap: 4em;
+}
+
+.logo-margin-top {
+    margin-top: calc(50% - 80px);
+    width: 250px;
+}
+
+.padding-bottom {
+    margin-bottom: 8vh;
+}
+
+.large-icon {
+    font-size: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.center {
+    text-align: center;
+}

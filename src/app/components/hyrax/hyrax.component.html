@@ -1,0 +1,49 @@
+<div>
+    <div class="page-padding intro-section">
+        <div class="text-left-logo-right">
+            <div>
+                <h1>Hyrax Data Server</h1>
+                <p class="justify intro-paragraph">Hyrax is the next generation server from OPeNDAP. It utilizes a
+                    modular design that employs a light weight Java servlet to provide the public-accessible client
+                    interface, and a back-end daemon, the BES, to handle the heavy lifting. The BES uses the same
+                    handlers that are used with Server3 (also know as the CGI Server) but loads those at run time.</p>
+            </div>
+            <div>
+                <img src="../../../assets/images/Hyrax-logo.png" class="logo-margin-top">
+            </div>
+        </div>
+    </div>
+
+    <div class="benefits-section">
+        <div class="body-div">
+            <h1 class="center padding-bottom">Benefits of Hyrax</h1>
+
+            <div class="benefits-subsection">
+                <div>
+                    <mat-icon class="large-icon">router</mat-icon>
+                    <p>The servlet architecture is faster, more robust, and more secure than CGI invoked Perl scripts.</p>
+                </div>
+                <div>
+                    <mat-icon class="large-icon">device_hub</mat-icon>
+                    <p>A single installation can handle multiple data representations, such as hdf4, hdf5, and netcdf.</p>
+                </div>
+                <div>
+                    <mat-icon class="large-icon">folder</mat-icon>
+                    <p>THREDDS catalog functionality.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h1>Releases</h1>
+
+        <ul>
+            <li *ngFor="let version of versions">
+                <a routerLink="/releases/{{version}}" target="_blank">
+                    {{version}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

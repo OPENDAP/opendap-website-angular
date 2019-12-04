@@ -20,6 +20,7 @@ import { ReleasesPageComponent } from './components/releases-page/releases-page.
 import { HttpClientModule } from '@angular/common/http';
 import { BoilerplateComponent } from './components/boilerplate/boilerplate.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { HyraxComponent } from './components/hyrax/hyrax.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     ReleasesPageComponent,
     BoilerplateComponent,
     AboutUsComponent,
+    HyraxComponent,
   ],
   imports: [
     BrowserModule,

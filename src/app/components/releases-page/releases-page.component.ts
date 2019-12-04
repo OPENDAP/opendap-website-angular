@@ -24,7 +24,7 @@ export class ReleasesPageComponent implements OnInit {
     });
   }
 
-  loadPage(version: String) {
+  loadPage(version: string) {
     this.dataReaderService.getVersionPageData(version).subscribe(data => {
       for (let thisData of data.versions) {
         this.allVersionData.push(thisData);
