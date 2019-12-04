@@ -4,7 +4,8 @@
   "description": "Serves the version information to the front-end via a simple REST API.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Alexander Porrello",
   "license": "ISC",

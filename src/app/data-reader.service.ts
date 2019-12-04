@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Versions } from './models/versions';
-import { Version } from './models/versions';
 import { VersionData } from './models/versionData';
 
 
@@ -11,6 +10,8 @@ import { VersionData } from './models/versionData';
   providedIn: 'root'
 })
 export class DataReaderService {
+
+  serverURL:string = "http://localhost:3001";//window.location.origin
 
   constructor(private http: HttpClient) { }
 
@@ -23,13 +24,17 @@ export class DataReaderService {
   }
 
   getReleaseData(): Observable<Versions> {
-    return this.http.get<Versions>("../assets/json/versions.json");
+    return this.http.get<Versions>(`${this.serverURL}/api/versions`);
   }
 
   getAboutUsPage() {
     return this.http.get("../assets/json/about-us.md");
   }
 
+  getVersionPageData(version:String):Observable<any> {
+    return this.http.get<Versions>(`${this.serverURL}/api/versions/${version}`);
+  }
+  
   async getMarkdown(filename:String):Promise<string> {
     return new Promise(resolve => {
       fetch(`../../assets/md/${filename}`).then(res => res.text()).then(text => {

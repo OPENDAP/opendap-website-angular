@@ -9,25 +9,16 @@ import * as showdown from 'showdown';
   styleUrls: ['./boilerplate.component.scss']
 })
 export class BoilerplateComponent implements OnInit {
-  @Input() version: string;
+  @Input() download: string;
+  @Input() installation: string;
 
   constructor(private dataReaderService: DataReaderService) { }
 
   panelOpenState: Boolean = false;
 
-  boilerplate: any;
-
-  installation: any;
+  installationDisplay: String;
 
   async ngOnInit() {
-    this.dataReaderService.getBoilerplateFile(this.version).subscribe(data => {
-      this.boilerplate = data;
-    });
-
-    let markdown = await this.dataReaderService.getMarkdown(this.version + "_install-boiler.md");
-    this.installation = new showdown.Converter().makeHtml(markdown);
-
-    console.log(this.installation);
+    this.installationDisplay = new showdown.Converter().makeHtml(this.installation);
   }
-
 }

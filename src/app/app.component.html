@@ -4,14 +4,14 @@
   </button>
 
   <ul>
-    <button mat-button [matMenuTriggerFor]="menu">Releases</button>
-    <mat-menu #menu="matMenu">
-      <a routerLink="/releases">
-        <button mat-menu-item *ngFor="let version of versions">{{version.version}}</button>
-      </a>
-    </mat-menu>
     <li><a routerLink="/hyrax"><button mat-button>Hyrax</button></a></li>
     <li><a routerLink="/software"><button mat-button>Software</button></a></li>
+    <button mat-button [matMenuTriggerFor]="menu">Releases</button>
+    <mat-menu #menu="matMenu">
+      <a *ngFor="let version of versions" routerLink="/releases/{{version}}">
+        <button mat-menu-item>{{version}}</button>
+      </a>
+    </mat-menu>
     <li><a routerLink="/about-us"><button mat-button>About Us</button></a></li>
   </ul>
 </nav>

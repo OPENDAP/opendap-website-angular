@@ -4,7 +4,7 @@ import { ReleasesPageComponent } from './components/releases-page/releases-page.
 import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
-  { path: 'releases', component: ReleasesPageComponent },
+  { path: 'releases/:version', component: ReleasesPageComponent },
   { path: 'about-us', component: AboutUsComponent }
 ];
 

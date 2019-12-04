@@ -5,6 +5,10 @@ const path = require('path');
 
 const app = express();
 
+app.route('/').get((req, res) => {
+    res.sendFile(path.resolve('../dist/opendap-angular/index.html'));
+});
+
 app.route('/api/versions').get((req, res) => {
     fs.readdir('public', (err, files) => {
         if (err) throw err;

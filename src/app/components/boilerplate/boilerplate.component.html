@@ -1,12 +1,12 @@
-<div *ngIf="boilerplate">
-    <!-- <h1>Software downloads for Hyrax {{ boilerplate.hyraxVersion }}</h1> -->
+<div>
+    <h2 *ngIf=download>Software downloads for Hyrax {{ download.hyraxVersion }}</h2>
 
     <mat-accordion>
-        <mat-expansion-panel class="top-gap">
+        <mat-expansion-panel *ngIf=download class="top-gap">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     <mat-icon class="right-gap">save_alt</mat-icon>
-                    Software downloads for Hyrax {{ boilerplate.hyraxVersion }}
+                    Software downloads for Hyrax {{ download.hyraxVersion }}
                 </mat-panel-title>
             </mat-expansion-panel-header>
 
@@ -15,7 +15,7 @@
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <img src="../../../assets/images/linux-logo.png" class="logo-small">
-                            BES {{ boilerplate.softwareDownloads.bes.version }}
+                            BES {{ download.softwareDownloads.bes.version }}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
 
@@ -23,16 +23,16 @@
 
                     <ul>
                         <li>
-                            <a href={{boilerplate.softwareDownloads.libdap.centOS_6.link}} target="_blank">
-                                libdap-{{boilerplate.softwareDownloads.libdap.version}}
+                            <a href={{download.softwareDownloads.libdap.centOS_6.link}} target="_blank">
+                                libdap-{{download.softwareDownloads.libdap.version}}
                             </a>
-                            <a href={{boilerplate.softwareDownloads.libdap.centOS_6.gpgSignature}}>(gpg signature)</a>
+                            <a href={{download.softwareDownloads.libdap.centOS_6.gpgSignature}}>(gpg signature)</a>
                         </li>
                         <li>
-                            <a href={{boilerplate.softwareDownloads.bes.centOS_6.link}} target="_blank">
-                                bes-{{boilerplate.softwareDownloads.bes.version}}
+                            <a href={{download.softwareDownloads.bes.centOS_6.link}} target="_blank">
+                                bes-{{download.softwareDownloads.bes.version}}
                             </a>
-                            <a href={{boilerplate.softwareDownloads.bes.centOS_6.gpgSignature}}>(gpg signature)</a>
+                            <a href={{download.softwareDownloads.bes.centOS_6.gpgSignature}}>(gpg signature)</a>
                         </li>
                     </ul>
 
@@ -40,22 +40,22 @@
 
                     <ul>
                         <li>
-                            <a href={{boilerplate.softwareDownloads.libdap.centOS_7.link}} target="_blank">
-                                libdap-{{boilerplate.softwareDownloads.libdap.version}}
+                            <a href={{download.softwareDownloads.libdap.centOS_7.link}} target="_blank">
+                                libdap-{{download.softwareDownloads.libdap.version}}
                             </a>
-                            <a href={{boilerplate.softwareDownloads.libdap.centOS_7.gpgSignature}}>(gpg signature)</a>
+                            <a href={{download.softwareDownloads.libdap.centOS_7.gpgSignature}}>(gpg signature)</a>
                         </li>
                         <li>
-                            <a href={{boilerplate.softwareDownloads.bes.centOS_7.link}} target="_blank">
-                                bes-{{boilerplate.softwareDownloads.bes.version}}
+                            <a href={{download.softwareDownloads.bes.centOS_7.link}} target="_blank">
+                                bes-{{download.softwareDownloads.bes.version}}
                             </a>
-                            <a href={{boilerplate.softwareDownloads.bes.centOS_7.gpgSignature}}>(gpg signature)</a>
+                            <a href={{download.softwareDownloads.bes.centOS_7.gpgSignature}}>(gpg signature)</a>
                         </li>
                     </ul>
 
                     <strong>Notes</strong>
 
-                    <p>{{boilerplate.softwareDownloads.bes.notes}}</p>
+                    <p>{{download.softwareDownloads.bes.notes}}</p>
                 </mat-expansion-panel>
 
 
@@ -64,7 +64,7 @@
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             <img src="../../../assets/images/java-logo.png" class="logo-small">
-                            OLFS {{boilerplate.softwareDownloads.olfs.version}}
+                            OLFS {{download.softwareDownloads.olfs.version}}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
 
@@ -72,25 +72,25 @@
 
                     <ul>
                         <li>
-                            <a href={{boilerplate.softwareDownloads.olfs.link}} target="_blank">
-                                OLFS {{boilerplate.softwareDownloads.olfs.version}} Web Archive File
+                            <a href={{download.softwareDownloads.olfs.link}} target="_blank">
+                                OLFS {{download.softwareDownloads.olfs.version}} Web Archive File
                             </a>
-                            <a href={{boilerplate.softwareDownloads.olfs.gpgSignature}}>(gpg signature)</a>:
-                            {{ boilerplate.softwareDownloads.olfs.downloadNotes }}
+                            <a href={{download.softwareDownloads.olfs.gpgSignature}}>(gpg signature)</a>:
+                            {{ download.softwareDownloads.olfs.downloadNotes }}
                         </li>
                         <li>
-                            <a href={{boilerplate.softwareDownloads.olfs.robots.link}} target="_blank">
-                                OLFS Automatic robots.txt generation for {{boilerplate.softwareDownloads.olfs.version}}
+                            <a href={{download.softwareDownloads.olfs.robots.link}} target="_blank">
+                                OLFS Automatic robots.txt generation for {{download.softwareDownloads.olfs.version}}
                             </a>
-                            <a href={{boilerplate.softwareDownloads.olfs.robots.gpgSignature}}>(gpg signature)</a>:
-                            {{ boilerplate.softwareDownloads.olfs.robots.notes }}
+                            <a href={{download.softwareDownloads.olfs.robots.gpgSignature}}>(gpg signature)</a>:
+                            {{ download.softwareDownloads.olfs.robots.notes }}
                         </li>
                     </ul>
 
                     <strong>Notes</strong>
 
                     <ul>
-                        <li *ngFor="let note of boilerplate.softwareDownloads.olfs.notes">
+                        <li *ngFor="let note of download.softwareDownloads.olfs.notes">
                             {{note}}
                         </li>
                     </ul>
@@ -105,7 +105,7 @@
                     </mat-expansion-panel-header>
 
                     <ul>
-                        <li *ngFor="let install of boilerplate.softwareDownloads.docker">
+                        <li *ngFor="let install of download.softwareDownloads.docker">
                             <a href={{install.link}} target="_blank"> {{ install.linkTitle }} </a>
                         </li>
                     </ul>
@@ -122,9 +122,9 @@
                     </mat-expansion-panel-header>
 
                     <p>
-                        Use the <a href={{boilerplate.softwareDownloads.ncWMS2.url}} target="_blank">EDAL website</a> to
+                        Use the <a href={{download.softwareDownloads.ncWMS2.url}} target="_blank">EDAL website</a> to
                         locate the latest ncWMS2 "Servlet Container" software bundle as a WAR file. Install it in the
-                        same Tomcat instance as the OLFS. <a href={{boilerplate.softwareDownloads.ncWMS2.link.url}}>The
+                        same Tomcat instance as the OLFS. <a href={{download.softwareDownloads.ncWMS2.link.url}}>The
                             configuration instructions can be found here.
                         </a>
                     </p>
@@ -133,7 +133,7 @@
             </mat-accordion>
         </mat-expansion-panel>
 
-        <mat-expansion-panel class="bottom-gap">
+        <mat-expansion-panel *ngIf=installationDisplay class="bottom-gap">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     <mat-icon class="right-gap">add_to_queue</mat-icon>
@@ -141,7 +141,7 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
 
-            <div [innerHTML]="installation"></div>
+            <div [innerHTML]="installationDisplay"></div>
         </mat-expansion-panel>
     </mat-accordion>
 </div>

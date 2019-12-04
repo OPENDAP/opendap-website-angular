@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataReaderService } from './data-reader.service';
-import { Version } from './models/versions';
+import { Versions } from './models/versions';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { Version } from './models/versions';
 export class AppComponent implements OnInit {
   title = 'opendap-angular';
 
-  versions: Version[];
+  versions: Versions[];
 
   constructor(private dataReaderService: DataReaderService) { }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DataReaderService } from '../../data-reader.service';
 import { VersionData } from '../../models/versionData';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-releases-page',
@@ -12,23 +13,25 @@ export class ReleasesPageComponent implements OnInit {
 
   allVersionData: VersionData[] = [];
 
-  boilerplate: any;
+  download: String;
+  installation: String;
 
-  version: String;
-
-  constructor(private dataReaderService: DataReaderService) { }
+  constructor(private route: ActivatedRoute, private dataReaderService: DataReaderService) { }
 
   ngOnInit() {
-    this.dataReaderService.getReleaseData().subscribe(data => {
-      for (let version of data.versions) {
-        this.version = version.version;
+    this.route.params.subscribe(params => {
+      this.loadPage(params.version);
+    });
+  }
 
-        for (let i = 0; i < version.numReleases; i++) {
-          this.dataReaderService.getReleaseFile(version.version + "." + i).subscribe(data => {
-            this.allVersionData.push(data);
-          });
-        }
+  loadPage(version: String) {
+    this.dataReaderService.getVersionPageData(version).subscribe(data => {
+      for (let thisData of data.versions) {
+        this.allVersionData.push(thisData);
       }
+
+      this.download = data.download;
+      this.installation = data.installation;
     });
   }
 }

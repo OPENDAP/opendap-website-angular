@@ -1,8 +1,12 @@
 <div class="page-padding">
     <!-- <app-boilerplate [version]="version"></app-boilerplate> -->
 
+    
+
     <div *ngFor="let data of allVersionData">
         <h1>{{ data.fixVersion | titlecase }}</h1>
+
+        <app-boilerplate *ngIf="download && installation" [download]="download" [installation]="installation"></app-boilerplate>
 
         <h2>New Features in {{ data.fixVersion | titlecase }}</h2>
 
@@ -29,5 +33,5 @@
         </table>
     </div>
 
-    <app-boilerplate *ngIf="version" [version]="version"></app-boilerplate>
+    
 </div>

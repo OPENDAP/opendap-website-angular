@@ -1,5 +1,5 @@
 {
-    "fixVersion": "hyrax 1.15.0",
+    "fixVersion": "hyrax 1.16.0",
     "newFeatures": [
         {
             "title": "CoverageJSON",
