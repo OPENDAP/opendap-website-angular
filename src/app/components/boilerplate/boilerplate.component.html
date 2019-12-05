@@ -1,5 +1,6 @@
 <div>
-    <h2 *ngIf=download>Software downloads for Hyrax {{ download.hyraxVersion }}</h2>
+    <h2 *ngIf="download&&!title">Software downloads for Hyrax {{ download.hyraxVersion }}</h2>
+    <h2 *ngIf="title">{{title}}</h2>
 
     <mat-accordion>
         <mat-expansion-panel *ngIf=download class="top-gap">

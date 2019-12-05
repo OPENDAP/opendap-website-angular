@@ -1,5 +1,5 @@
-<div>
-    <div class="page-padding intro-section">
+<div id="body">
+    <div class="page-padding intro-section colored-div">
         <div class="text-left-logo-right">
             <div>
                 <h1>Hyrax Data Server</h1>
@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class="benefits-section">
+    <div class="benefits-section colored-div">
         <div class="body-div">
             <h1 class="center padding-bottom">Benefits of Hyrax</h1>
 
@@ -35,15 +35,7 @@
         </div>
     </div>
 
-    <div>
-        <h1>Releases</h1>
-
-        <ul>
-            <li *ngFor="let version of versions">
-                <a routerLink="/releases/{{version}}" target="_blank">
-                    {{version}}
-                </a>
-            </li>
-        </ul>
+    <div class="page-padding benefits-section colored-div">
+        <app-boilerplate *ngIf="download && installation" [download]="download" [installation]="installation" [title]="title"></app-boilerplate>
     </div>
 </div>

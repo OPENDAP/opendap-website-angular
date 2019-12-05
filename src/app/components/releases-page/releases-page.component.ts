@@ -13,8 +13,9 @@ export class ReleasesPageComponent implements OnInit {
 
   allVersionData: VersionData[] = [];
 
-  download: String;
-  installation: String;
+  download: string;
+  installation: string;
+  title: string;
 
   constructor(private route: ActivatedRoute, private dataReaderService: DataReaderService) { }
 
@@ -26,7 +27,7 @@ export class ReleasesPageComponent implements OnInit {
 
   loadPage(version: string) {
     this.dataReaderService.getVersionPageData(version).subscribe(data => {
-      for (let thisData of data.versions) {
+      for (const thisData of data.versions) {
         this.allVersionData.push(thisData);
       }
 

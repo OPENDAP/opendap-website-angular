@@ -2,6 +2,24 @@
     max-width: 800px;
 }
 
+.justify {
+    text-align: justify;
+}
+
+.center {
+    text-align: center;
+}
+
+.colored-div:nth-child(even) {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.colored-div:nth-child(odd) {
+    background-color: inherit;
+    color: inherit;
+}
+
 .body-div {
     max-width: 1000px;
     margin-left: auto;
@@ -9,26 +27,12 @@
 }
 
 .intro-section {
-    padding-top: 25vh;
-    padding-bottom: 25vh;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
 }
 
 .intro-paragraph {
     font-size: 18px;
-}
-
-.benefits-section {
-    color: white;
-    padding-top: 5vh;
-    padding-bottom: 7vh;
-    background: cornflowerblue;
-}
-
-.benefits-subsection {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 4em;
-    text-align: center;
 }
 
 .text-left-logo-right {
@@ -39,7 +43,19 @@
 
 .logo-margin-top {
     margin-top: calc(50% - 80px);
-    width: 250px;
+}
+
+.benefits-section {
+    color: white;
+    padding-top: 5vh;
+    padding-bottom: 9vh;
+}
+
+.benefits-subsection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4em;
+    text-align: center;
 }
 
 .padding-bottom {
@@ -50,12 +66,4 @@
     font-size: 50px;
     height: 50px;
     width: 50px;
-}
-
-.justify {
-    text-align: justify;
-}
-
-.center {
-    text-align: center;
 }

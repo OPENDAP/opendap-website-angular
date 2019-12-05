@@ -11,12 +11,13 @@ import * as showdown from 'showdown';
 export class BoilerplateComponent implements OnInit {
   @Input() download: string;
   @Input() installation: string;
+  @Input() title: string;
 
   constructor(private dataReaderService: DataReaderService) { }
 
-  panelOpenState: Boolean = false;
+  panelOpenState = false;
 
-  installationDisplay: String;
+  installationDisplay: string;
 
   async ngOnInit() {
     this.installationDisplay = new showdown.Converter().makeHtml(this.installation);
