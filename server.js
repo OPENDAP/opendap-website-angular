@@ -10,7 +10,7 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.static(__dirname + '/dist/opendap-angular'));
 
-app.route('/').get((req, res) => res.sendFile(path.join(__dirname)));
+app.route('/').get((req, res) => res.sendFile(path.join(__dirname, "dist", "opendap-angular", "index.html")));
 
 app.route('/api/versions').get((req, res) => {
     fs.readdir('public', (err, files) => {
