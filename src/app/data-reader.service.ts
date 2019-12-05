@@ -4,15 +4,25 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Versions } from './models/versions';
 
+import { isDevMode } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataReaderService {
 
-  serverURL = 'http://localhost:3001'; // window.location.origin
+  production = false;
 
-  constructor(private http: HttpClient) { }
+  serverURL: string;
+
+  constructor(private http: HttpClient) {
+    if (!isDevMode()) {
+      this.serverURL = window.location.origin;
+    } else {
+      this.serverURL = 'http://localhost:3001';
+    }
+  }
 
   getAboutUsPage() {
     return this.http.get('../assets/json/about-us.md');

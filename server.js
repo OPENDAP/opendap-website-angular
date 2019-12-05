@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors());
-app.use(express.static(__dirname + '/src'));//'/dist/opendap-angular'));
+app.use(express.static(__dirname + '/dist/opendap-angular'));
 
 app.route('/').get((req, res) => res.sendFile(path.join(__dirname)));
 

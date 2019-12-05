@@ -9,7 +9,7 @@ import * as showdown from 'showdown';
   styleUrls: ['./boilerplate.component.scss']
 })
 export class BoilerplateComponent implements OnInit {
-  @Input() download: string;
+  @Input() download: any;
   @Input() installation: string;
   @Input() title: string;
 
