@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --proxy-config proxy.config.json",
+    "build": "ng build --prod --aot && yarn nlb",
+    "nls": "netlify-lambda serve server",
+    "nlb": "netlify-lambda build server",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -26,8 +28,10 @@
     "angular-sanitize": "^1.7.9",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "netlify-lambda": "^1.6.3",
     "ng-showdown": "^1.1.0",
     "rxjs": "~6.4.0",
+    "serverless-http": "^2.3.0",
     "showdown": "^1.9.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

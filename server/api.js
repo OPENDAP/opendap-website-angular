@@ -1,18 +1,18 @@
 const express = require('express');
-const http = require('http');
+const serverless = require('serverless-http');
 const path = require('path');
 const fs = require('fs');
-const cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 3001;
-
-app.use(cors());
 app.use(express.static(__dirname + '/dist/opendap-angular'));
 
-app.route('/').get((req, res) => res.sendFile(path.join(__dirname)));
+const router = express.Router();
 
-app.route('/api/versions').get((req, res) => {
+router.get('/', (req, res) => res.sendFile({
+    "Server working": "Hello world"
+}));
+
+router.get('/api/versions', (req, res) => {
     fs.readdir('public', (err, files) => {
         if (err) throw err;
 
@@ -22,7 +22,7 @@ app.route('/api/versions').get((req, res) => {
     });
 });
 
-app.route('/api/versions/latest').get((req, res) => {
+router.get('/api/versions/latest', (req, res) => {
     fs.readdir('public', (err, files) => {
         if (err) throw err;
 
@@ -54,7 +54,7 @@ app.route('/api/versions/latest').get((req, res) => {
     });
 });
 
-app.route('/api/versions/:version').get((req, res) => {
+router.get('/api/versions/:version', (req, res) => {
     const requestedVersion = req.params['version'];
 
     fs.readdir(`public/${requestedVersion}`, (err, files) => {
@@ -82,8 +82,6 @@ app.route('/api/versions/:version').get((req, res) => {
     });
 })
 
-const server = http.createServer(app);
+app.use('/.netlify/functions/api', router);
 
-server.listen(port, () => {
-    console.log('Running.');
-})
+module.exports.handler = serverless(app);

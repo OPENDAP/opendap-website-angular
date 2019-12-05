@@ -17,11 +17,7 @@ export class DataReaderService {
   serverURL: string;
 
   constructor(private http: HttpClient) {
-    if (!isDevMode()) {
-      this.serverURL = window.location.origin;
-    } else {
-      this.serverURL = 'http://localhost:3001';
-    }
+    this.serverURL = '/.netlify/functions';
   }
 
   getAboutUsPage() {
