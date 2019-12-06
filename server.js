@@ -9,8 +9,18 @@ const port = process.env.PORT || 3001;
 
 app.use(cors());
 
+app.route('/api/content/markdown/:pageID').get((req, res) => {
+    fs.readFile(path.join(`public/Site/${req.params['pageID']}.md`), 'utf8', (err, data) => {
+        if(err) throw err;
+
+        res.status(200).send({
+            markdown: data
+        })
+    });
+});
+
 app.route('/api/versions').get((req, res) => {
-    fs.readdir('public', (err, files) => {
+    fs.readdir('public/Hyrax', (err, files) => {
         if (err) throw err;
 
         res.status(200).send({
@@ -20,7 +30,7 @@ app.route('/api/versions').get((req, res) => {
 });
 
 app.route('/api/versions/latest').get((req, res) => {
-    fs.readdir('public', (err, files) => {
+    fs.readdir('public/Hyrax', (err, files) => {
         if (err) throw err;
         getSpecificVersion(files.sort()[files.length - 1], res);
     });
@@ -36,7 +46,7 @@ app.route('/api/versions/:version').get((req, res) => {
  * @param {Response<any>} res The response that _will_ be sent.
  */
 function getSpecificVersion(requestedVersion, res) {
-    fs.readdir(`public/${requestedVersion}`, (err, files) => {
+    fs.readdir(`public/Hyrax/${requestedVersion}`, (err, files) => {
         if (err) throw err;
 
         allVersionFiles = {
@@ -47,7 +57,7 @@ function getSpecificVersion(requestedVersion, res) {
         };
 
         for (let f of files) {
-            let thisFile = fs.readFileSync(path.join('public', requestedVersion, f), 'utf8');
+            let thisFile = fs.readFileSync(path.join('public', "Hyrax", requestedVersion, f), 'utf8');
 
             if (f.includes("download")) {
 

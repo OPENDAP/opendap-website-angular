@@ -12,11 +12,12 @@ export class AboutUsComponent implements OnInit {
 
   constructor(private dataReaderService: DataReaderService) { }
 
-  html:string;
+  html: string;
 
   async ngOnInit() {
-    // let markdown = await this.dataReaderService.getMarkdown("about-us.md");
-    // this.html = new showdown.Converter().makeHtml(markdown);
+    this.dataReaderService.getAboutUsPage().subscribe(data => {
+      this.html = new showdown.Converter().makeHtml(data.markdown);
+    });
   }
 
 }

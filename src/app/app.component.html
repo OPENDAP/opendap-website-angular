@@ -5,7 +5,6 @@
 
   <ul>
     <li><a routerLink="/hyrax"><button mat-button>Hyrax</button></a></li>
-    <li><a routerLink="/software"><button mat-button>Software</button></a></li>
     <button mat-button [matMenuTriggerFor]="menu">Releases</button>
     <mat-menu #menu="matMenu">
       <a *ngFor="let version of versions" routerLink="/releases/{{version}}">

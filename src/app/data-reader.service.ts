@@ -24,8 +24,8 @@ export class DataReaderService {
     }
   }
 
-  getAboutUsPage() {
-    return this.http.get('../assets/json/about-us.md');
+  getAboutUsPage(): Observable<any> {
+    return this.http.get<any>(`${this.serverURL}/api/content/markdown/about-us`);
   }
 
   getReleaseData(): Observable<Versions> {
