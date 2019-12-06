@@ -3,7 +3,7 @@
     <h2 *ngIf="title">{{title}}</h2>
 
     <mat-accordion>
-        <mat-expansion-panel *ngIf=download class="top-gap">
+        <mat-expansion-panel *ngIf=downloadDisplay class="top-gap">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     <mat-icon class="right-gap">save_alt</mat-icon>
@@ -12,129 +12,21 @@
             </mat-expansion-panel-header>
 
             <mat-accordion>
-                <mat-expansion-panel>
+                <mat-expansion-panel *ngFor="let thisDownload of downloadDisplay" id="download">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            <img src="../../../assets/images/linux-logo.png" class="logo-small">
-                            BES {{ download.softwareDownloads.bes.version }}
+                            <img src="{{thisDownload.image}}" class="logo-small">
+                            {{thisDownload.title}}
                         </mat-panel-title>
                     </mat-expansion-panel-header>
 
-                    <strong>CentOS 6.x</strong>
-
-                    <ul>
-                        <li>
-                            <a href={{download.softwareDownloads.libdap.centOS_6.link}} target="_blank">
-                                libdap-{{download.softwareDownloads.libdap.version}}
-                            </a>
-                            <a href={{download.softwareDownloads.libdap.centOS_6.gpgSignature}}>(gpg signature)</a>
-                        </li>
-                        <li>
-                            <a href={{download.softwareDownloads.bes.centOS_6.link}} target="_blank">
-                                bes-{{download.softwareDownloads.bes.version}}
-                            </a>
-                            <a href={{download.softwareDownloads.bes.centOS_6.gpgSignature}}>(gpg signature)</a>
-                        </li>
-                    </ul>
-
-                    <strong>CentOS 7.x</strong>
-
-                    <ul>
-                        <li>
-                            <a href={{download.softwareDownloads.libdap.centOS_7.link}} target="_blank">
-                                libdap-{{download.softwareDownloads.libdap.version}}
-                            </a>
-                            <a href={{download.softwareDownloads.libdap.centOS_7.gpgSignature}}>(gpg signature)</a>
-                        </li>
-                        <li>
-                            <a href={{download.softwareDownloads.bes.centOS_7.link}} target="_blank">
-                                bes-{{download.softwareDownloads.bes.version}}
-                            </a>
-                            <a href={{download.softwareDownloads.bes.centOS_7.gpgSignature}}>(gpg signature)</a>
-                        </li>
-                    </ul>
-
-                    <strong>Notes</strong>
-
-                    <p>{{download.softwareDownloads.bes.notes}}</p>
-                </mat-expansion-panel>
-
-
-
-                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <img src="../../../assets/images/java-logo.png" class="logo-small">
-                            OLFS {{download.softwareDownloads.olfs.version}}
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-
-                    <strong>Download Links</strong>
-
-                    <ul>
-                        <li>
-                            <a href={{download.softwareDownloads.olfs.link}} target="_blank">
-                                OLFS {{download.softwareDownloads.olfs.version}} Web Archive File
-                            </a>
-                            <a href={{download.softwareDownloads.olfs.gpgSignature}}>(gpg signature)</a>:
-                            {{ download.softwareDownloads.olfs.downloadNotes }}
-                        </li>
-                        <li>
-                            <a href={{download.softwareDownloads.olfs.robots.link}} target="_blank">
-                                OLFS Automatic robots.txt generation for {{download.softwareDownloads.olfs.version}}
-                            </a>
-                            <a href={{download.softwareDownloads.olfs.robots.gpgSignature}}>(gpg signature)</a>:
-                            {{ download.softwareDownloads.olfs.robots.notes }}
-                        </li>
-                    </ul>
-
-                    <strong>Notes</strong>
-
-                    <ul>
-                        <li *ngFor="let note of download.softwareDownloads.olfs.notes">
-                            {{note}}
-                        </li>
-                    </ul>
-                </mat-expansion-panel>
-
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <img src="../../../assets/images/docker-logo.png" class="logo-small">
-                            Docker
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-
-                    <ul>
-                        <li *ngFor="let install of download.softwareDownloads.docker">
-                            <a href={{install.link}} target="_blank"> {{ install.linkTitle }} </a>
-                        </li>
-                    </ul>
-                </mat-expansion-panel>
-
-
-
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <img src="../../../assets/images/java-logo.png" class="logo-small">
-                            ncWMS2
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-
-                    <p>
-                        Use the <a href={{download.softwareDownloads.ncWMS2.url}} target="_blank">EDAL website</a> to
-                        locate the latest ncWMS2 "Servlet Container" software bundle as a WAR file. Install it in the
-                        same Tomcat instance as the OLFS. <a href={{download.softwareDownloads.ncWMS2.link.url}}>The
-                            configuration instructions can be found here.
-                        </a>
-                    </p>
+                    <div [innerHTML]="thisDownload.html"></div>
 
                 </mat-expansion-panel>
             </mat-accordion>
         </mat-expansion-panel>
 
-        <mat-expansion-panel *ngIf=installationDisplay class="bottom-gap">
+        <mat-expansion-panel *ngIf=installationDisplay class="bottom-gap" id="installation">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     <mat-icon class="right-gap">add_to_queue</mat-icon>

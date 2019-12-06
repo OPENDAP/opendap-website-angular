@@ -8,9 +8,6 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors());
-app.use(express.static(__dirname + '/dist/opendap-angular'));
-
-app.route('/').get((req, res) => res.sendFile(path.join(__dirname, "dist", "opendap-angular", "index.html")));
 
 app.route('/api/versions').get((req, res) => {
     fs.readdir('public', (err, files) => {
@@ -25,42 +22,25 @@ app.route('/api/versions').get((req, res) => {
 app.route('/api/versions/latest').get((req, res) => {
     fs.readdir('public', (err, files) => {
         if (err) throw err;
-
-        let requestedVersion = files.sort()[files.length - 1];
-
-        fs.readdir(`public/${requestedVersion}`, (err, files) => {
-            if (err) throw err;
-
-            allVersionFiles = {
-                versions: [],
-                download: null,
-                installation: null
-            };
-
-            for (let f of files) {
-                let thisFile = fs.readFileSync(path.join('public', requestedVersion, f), 'utf8');
-
-                if (f.includes("download")) {
-                    allVersionFiles.download = JSON.parse(thisFile);
-                } else if (f.includes("installation")) {
-                    allVersionFiles.installation = thisFile;
-                } else {
-                    allVersionFiles.versions.push(JSON.parse(thisFile));
-                }
-            }
-
-            res.status(200).send(allVersionFiles);
-        });
+        getSpecificVersion(files.sort()[files.length - 1], res);
     });
 });
 
 app.route('/api/versions/:version').get((req, res) => {
-    const requestedVersion = req.params['version'];
+    getSpecificVersion(req.params['version'], res);
+});
 
+/**
+ * 
+ * @param {string} requestedVersion The version that the user requests.
+ * @param {Response<any>} res The response that _will_ be sent.
+ */
+function getSpecificVersion(requestedVersion, res) {
     fs.readdir(`public/${requestedVersion}`, (err, files) => {
         if (err) throw err;
 
         allVersionFiles = {
+            hyraxVersion: requestedVersion,
             versions: [],
             download: null,
             installation: null
@@ -70,7 +50,11 @@ app.route('/api/versions/:version').get((req, res) => {
             let thisFile = fs.readFileSync(path.join('public', requestedVersion, f), 'utf8');
 
             if (f.includes("download")) {
-                allVersionFiles.download = JSON.parse(thisFile);
+
+                let sections = thisFile.split("#SPLIT#");
+                sections.shift();
+                
+                allVersionFiles.download = sections;
             } else if (f.includes("installation")) {
                 allVersionFiles.installation = thisFile;
             } else {
@@ -80,7 +64,7 @@ app.route('/api/versions/:version').get((req, res) => {
 
         res.status(200).send(allVersionFiles);
     });
-})
+}
 
 const server = http.createServer(app);
 

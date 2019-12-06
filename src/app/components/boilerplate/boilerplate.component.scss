@@ -1,3 +1,60 @@
+#download h3 {
+    font-size: 15px;
+    font-weight: 500;
+    
+    line-height: 15px;
+    border-bottom: none;
+
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#download li p {
+    padding-bottom: 5px;
+}
+
+#download p {
+    margin: 0px;
+    line-height: 21px;
+    font-size: 15px;
+}
+
+#installation li {
+    font-size: 15px
+}
+
+#installation h2 {
+    font-weight: 300;
+    font-size: 20px;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+    margin-top: 1em;
+}
+
+#installation h3 {
+    font-size: 18px;
+    font-weight: 400;
+    border-bottom: none;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0px;
+}
+
+#installation p {
+    line-height: 25px;
+    font-size: 15px;
+}
+
+#installation ul {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+pre code {
+    display: flex;
+    padding: 10px 20px;
+}
+
 .top-gap {
     margin-top: 25px;
 }
