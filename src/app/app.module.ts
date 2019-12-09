@@ -8,7 +8,12 @@ import {
   MatDividerModule,
   MatButtonModule,
   MatMenuModule,
-  MatIconModule
+  MatIconModule,
+  MatSelectModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCardModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BoilerplateComponent } from './components/boilerplate/boilerplate.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { HyraxComponent } from './components/hyrax/hyrax.component';
+import { BoilerplateMakerComponent } from './components/boilerplate-maker/boilerplate-maker.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +35,7 @@ import { HyraxComponent } from './components/hyrax/hyrax.component';
     BoilerplateComponent,
     AboutUsComponent,
     HyraxComponent,
+    BoilerplateMakerComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,12 @@ import { HyraxComponent } from './components/hyrax/hyrax.component';
     MatIconModule,
     MatExpansionModule,
     MatMenuModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

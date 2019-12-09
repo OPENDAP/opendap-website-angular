@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Versions } from './models/versions';
 
 import { isDevMode } from '@angular/core';
+import { HKVersionResponse } from './models/hkVersions';
 
 
 @Injectable({
@@ -15,6 +16,12 @@ export class DataReaderService {
   production = false;
 
   serverURL: string;
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
   constructor(private http: HttpClient) {
     if (!isDevMode()) {
@@ -38,5 +45,9 @@ export class DataReaderService {
 
   getLatestVersion(): Observable<any> {
     return this.http.get<any>(`${this.serverURL}/api/versions/latest`);
+  }
+
+  getHKVersions(): Observable<HKVersionResponse> {
+    return this.http.get<HKVersionResponse>('http://localhost:3001/api/jira/HK/versions');
   }
 }

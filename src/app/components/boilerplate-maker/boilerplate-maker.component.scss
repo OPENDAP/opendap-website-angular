@@ -1,0 +1,43 @@
+mat-form-field {
+    width: 100%;
+}
+
+mat-card-title {
+    margin-top: 1em !important;
+    margin-bottom: 1.5em;
+    font-weight: 400;
+}
+
+.body {
+    padding-top: 50px;
+}
+
+#welcome-dialog h3 {
+    border-bottom: none;
+}
+
+.new-feature-card {
+    margin-bottom: 25px;
+}
+
+.new-features-card {
+    max-width: 900px;
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-dialog {
+    text-align: center;
+    width: 500px;
+    margin-right: auto;
+    position: fixed;
+    margin-left: calc(50% - 250px);
+    margin-top: 25vh;
+    border-radius: 4px;
+    text-align: center;
+    padding: 20px 10px 50px 10px;
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 
+    0 24px 38px 3px rgba(0, 0, 0, 0.14), 
+    0 9px 46px 8px rgba(0, 0, 0, 0.12);
+}

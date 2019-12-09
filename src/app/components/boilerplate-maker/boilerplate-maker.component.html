@@ -1,0 +1,40 @@
+<div class="body">
+    <div *ngIf="!fixVersion" id="welcome-dialog" class="welcome-dialog">
+        <h1>Welcome to the OPeNDAP<br>New Release Template</h1>
+        <h3>Select a FixVersion to get started.</h3>
+
+        <mat-form-field>
+            <mat-label>Fix Version</mat-label>
+            <mat-select [(value)]="selectedValue">
+                <mat-option *ngFor="let version of versions" [value]="version.name">
+                    {{version.name | titlecase}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-icon-button (click)="startTemplate()">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+
+    <div *ngIf="fixVersion">
+        <mat-card class="new-features-card">
+            <mat-card-title>New Features</mat-card-title>
+
+            <mat-card *ngFor="let thisFeature of newFeatures" class="new-feature-card">
+                <form>
+                    <mat-form-field>
+                        <input matInput placeholder="Title" value="{{thisFeature.title}}" autocomplete="off">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <textarea matInput placeholder="Description" value="{{thisFeature.body}}" cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+                    </mat-form-field>
+                </form>
+            </mat-card>
+
+            <button mat-icon-button (click)="addNewFeature()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-card>
+    </div>
+</div>

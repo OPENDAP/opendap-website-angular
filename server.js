@@ -1,17 +1,26 @@
 const express = require('express');
 const http = require('http');
+const https = require('https');
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
+const request = require('request');
 
 const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors());
 
+app.route('/api/jira/HK/versions').get((req, res) => {
+    request('https://opendap.atlassian.net/rest/api/2/project/HK/versions', { json: true }, (err, thisRes) => {
+        if (err) throw err;
+        res.status(200).send(thisRes);
+    });
+});
+
 app.route('/api/content/markdown/:pageID').get((req, res) => {
     fs.readFile(path.join(`public/Site/${req.params['pageID']}.md`), 'utf8', (err, data) => {
-        if(err) throw err;
+        if (err) throw err;
 
         res.status(200).send({
             markdown: data
@@ -63,7 +72,7 @@ function getSpecificVersion(requestedVersion, res) {
 
                 let sections = thisFile.split("#SPLIT#");
                 sections.shift();
-                
+
                 allVersionFiles.download = sections;
             } else if (f.includes("installation")) {
                 allVersionFiles.installation = thisFile;
