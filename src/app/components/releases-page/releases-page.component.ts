@@ -26,6 +26,8 @@ export class ReleasesPageComponent implements OnInit {
   }
 
   loadPage(version: string) {
+    this.allVersionData.length = 0;
+    
     this.dataReaderService.getVersionPageData(version).subscribe(data => {
       for (const thisData of data.versions) {
         this.allVersionData.push(thisData);
