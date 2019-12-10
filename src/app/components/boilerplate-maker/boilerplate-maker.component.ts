@@ -5,6 +5,7 @@ import { DataReaderService } from 'src/app/data-reader.service';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 
 import { take } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-boilerplate-maker',
@@ -13,15 +14,13 @@ import { take } from 'rxjs/operators';
 })
 export class BoilerplateMakerComponent {
 
+  myControl = new FormControl();
   versions: HKVersion[];
   selectedValue: string;
 
   constructor(private dataReaderService: DataReaderService, private _ngZone: NgZone) {
     this.dataReaderService.getHKVersions().subscribe(response => {
       this.versions = response.body;
-
-      this.selectedValue = '010104';
-      this.startTemplate();
     });
   }
 
@@ -32,6 +31,7 @@ export class BoilerplateMakerComponent {
   issues: BugFix[];
 
   startTemplate() {
+    console.log(this.myControl);
     this.dataReaderService.getBugFixData(this.selectedValue).subscribe(data => {
       console.log(data.body.issues);
 

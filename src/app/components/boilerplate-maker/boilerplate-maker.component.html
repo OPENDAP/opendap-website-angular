@@ -7,7 +7,7 @@
             <mat-form-field>
                 <mat-label>Fix Version</mat-label>
                 <mat-select [(value)]="selectedValue">
-                    <mat-option *ngFor="let version of versions" [value]="version.name">
+                    <mat-option *ngFor="let version of versions" [value]="version.id">
                         {{version.name | titlecase}}
                     </mat-option>
                 </mat-select>
@@ -32,7 +32,7 @@
                             <input [(ngModel)]="thisFeature.title" name=thisFeature.title matInput placeholder="Title"
                                 value="{{thisFeature.title}}" autocomplete="off">
                         </mat-form-field>
-                        
+
                         <mat-form-field class="full-width">
                             <textarea [(ngModel)]="thisFeature.body" name=thisFeature.body matInput
                                 placeholder="Description" value="{{thisFeature.body}}" cdkTextareaAutosize

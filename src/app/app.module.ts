@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
   MatExpansionModule,
@@ -14,7 +14,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatCardModule,
-  MatTableModule
+  MatTableModule,
+  MatAutocompleteModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -54,7 +55,9 @@ import { BoilerplateMakerComponent } from './components/boilerplate-maker/boiler
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
