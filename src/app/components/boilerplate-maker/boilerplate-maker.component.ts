@@ -16,28 +16,81 @@ export class BoilerplateMakerComponent {
   versions: HKVersion[];
   selectedValue: string;
 
-  fixVersion: string = 'Hyrax 1.15.0';
-  newFeatures: NewFeature[] = [new NewFeature()];
-
   constructor(private dataReaderService: DataReaderService, private _ngZone: NgZone) {
     this.dataReaderService.getHKVersions().subscribe(response => {
       this.versions = response.body;
+
+      this.selectedValue = '010104';
+      this.startTemplate();
     });
   }
 
   @ViewChild('autosize', { static: false }) autosize: CdkTextareaAutosize;
 
+  fixVersion: string;
+  newFeatures: NewFeature[] = [new NewFeature()];
+  issues: BugFix[];
+
   startTemplate() {
-    this.fixVersion = this.selectedValue;
-    this.selectedValue = null;
+    this.dataReaderService.getBugFixData(this.selectedValue).subscribe(data => {
+      console.log(data.body.issues);
+
+      this.fixVersion = this.selectedValue;
+      this.issues = [];
+
+      for (let thisIssue of data.body.issues) {
+        this.issues.push(new BugFix(thisIssue.key, thisIssue.fields.summary));
+      }
+    });
+  }
+
+  triggerResize() {
+    this._ngZone.onStable.pipe(take(1)).subscribe(() => this.autosize.resizeToFitContent(true));
   }
 
   addNewFeature() {
     this.newFeatures.push(new NewFeature());
   }
 
-  triggerResize() {
-    this._ngZone.onStable.pipe(take(1)).subscribe(() => this.autosize.resizeToFitContent(true));
+  deleteNewFeature(newFeature: NewFeature) {
+    this.newFeatures = this.arrayRemove(this.newFeatures, newFeature);
+  }
+
+  addNewBugFix() {
+    this.issues.push(new BugFix());
+  }
+
+  deleteBugFix(bugFix: BugFix) {
+    this.issues = this.arrayRemove(this.issues, bugFix);
+  }
+
+  arrayRemove(arr: any[], value: any) {
+    return arr.filter(ele => {
+      return ele != value;
+    });
+  }
+
+  updateDescription(bugFix: BugFix) {
+    this.dataReaderService.getIssue(bugFix.key).subscribe(data => {
+      bugFix.summary = data.body.fields.summary;
+    });
+  }
+
+  downloadData() {
+    console.log({
+      newFeatures: this.newFeatures,
+      issues: this.issues
+    });
+  }
+}
+
+export class BugFix {
+  key: string;
+  summary: string;
+
+  constructor(key = "", summary = "") {
+    this.key = key;
+    this.summary = summary;
   }
 }
 

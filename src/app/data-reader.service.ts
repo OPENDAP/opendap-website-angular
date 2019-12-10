@@ -50,4 +50,35 @@ export class DataReaderService {
   getHKVersions(): Observable<HKVersionResponse> {
     return this.http.get<HKVersionResponse>('http://localhost:3001/api/jira/HK/versions');
   }
+
+  getIssue(key: string): Observable<JiraIssue> {
+    return this.http.get<JiraIssue>(`http://localhost:3001/api/jira/${key}`)
+  }
+
+  getBugFixData(fixVersion: string): Observable<JiraTicket> {
+    return this.http.get<JiraTicket>(`http://localhost:3001/api/jira/HK/versions/${fixVersion}`);
+  }
+}
+
+export class JiraTicket {
+  body: {
+    startAt: number;
+    total: number;
+    issues: Issue[];
+  }
+}
+
+export class JiraIssue {
+  body: Issue;
+}
+
+export class Issue {
+  expand: string;
+  id: string;
+  self: string;
+  key: string;
+  fields: {
+    description: string;
+    summary: string;
+  }
 }

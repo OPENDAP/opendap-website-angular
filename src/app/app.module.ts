@@ -13,7 +13,8 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatCardModule
+  MatCardModule,
+  MatTableModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -52,7 +53,8 @@ import { BoilerplateMakerComponent } from './components/boilerplate-maker/boiler
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
