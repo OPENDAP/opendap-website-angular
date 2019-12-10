@@ -9,7 +9,8 @@
 
         <div *ngFor="let newFeature of data['newFeatures']">
             <h3> {{ newFeature.title }} </h3>
-            <p> {{ newFeature.body }} </p>
+
+            <div [innerHTML]='newFeature.body'></div>
         </div>
 
         <h2>Bug Fixes in {{ data.fixVersion | titlecase }}</h2>

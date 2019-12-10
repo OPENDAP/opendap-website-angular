@@ -4,6 +4,8 @@ import { DataReaderService } from '../../data-reader.service';
 import { VersionData } from '../../models/versionData';
 import { ActivatedRoute } from '@angular/router';
 
+import * as showdown from 'showdown';
+
 @Component({
   selector: 'app-releases-page',
   templateUrl: './releases-page.component.html',
@@ -30,6 +32,13 @@ export class ReleasesPageComponent implements OnInit {
     
     this.dataReaderService.getVersionPageData(version).subscribe(data => {
       for (const thisData of data.versions) {
+        console.log(thisData);
+
+        for(const thisFeature of thisData.newFeatures) {
+          console.log(thisFeature);
+          thisFeature.body = new showdown.Converter().makeHtml(thisFeature.body);
+        }
+
         this.allVersionData.push(thisData);
       }
 
