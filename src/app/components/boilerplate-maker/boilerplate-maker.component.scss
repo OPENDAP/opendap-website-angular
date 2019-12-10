@@ -1,4 +1,5 @@
 .body {
+    padding-top: 50px;
     margin-bottom: 50px;
 }
 
@@ -6,12 +7,6 @@ mat-card-title {
     margin-top: 1em !important;
     margin-bottom: 1.5em;
     font-weight: 400;
-}
-
-.delete-button {
-    position: absolute;
-    right: -50px;
-    color: gray;
 }
 
 .bug-fix-form {
@@ -28,29 +23,12 @@ mat-card-title {
     max-width: 80px;
 }
 
-.body {
-    padding-top: 50px;
-}
+
+/** WELCOME DIALOG **/
+
 
 #welcome-dialog h3 {
     border-bottom: none;
-}
-
-.new-feature-card {
-    margin-bottom: 25px;
-}
-
-.bug-fix-card {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-bottom: 1em;
-}
-
-.new-features-card {
-    max-width: 900px;
-    margin-top: 35px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .welcome-dialog {
@@ -66,6 +44,37 @@ mat-card-title {
     box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 
     0 24px 38px 3px rgba(0, 0, 0, 0.14), 
     0 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+/** CARDS **/
+
+
+.bug-fix-card {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 1em;
+}
+
+.new-features-card {
+    max-width: 900px;
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.new-feature-card {
+    margin-bottom: 25px;
+}
+
+
+/** BUTTONS **/
+
+
+.delete-button {
+    position: absolute;
+    right: -50px;
+    color: gray;
 }
 
 .bug-fix-button {
