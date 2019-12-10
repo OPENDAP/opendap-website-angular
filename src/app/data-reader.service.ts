@@ -80,5 +80,14 @@ export class Issue {
   fields: {
     description: string;
     summary: string;
+    fixVersions: FixVersion[]; 
   }
+}
+
+export class FixVersion {
+  id: string;
+  name: string;
+  releasedDate: string;
+  released: boolean;
+  self: string;
 }

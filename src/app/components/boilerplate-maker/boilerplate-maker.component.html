@@ -20,7 +20,7 @@
 
         <div *ngIf="fixVersion">
             <div class="new-features-card">
-                <h2>New Features</h2>
+                <h2 *ngIf="fixVersionTitle">New Features in {{fixVersionTitle | titlecase}}</h2>
 
                 <mat-card *ngFor="let thisFeature of newFeatures" class="new-feature-card">
                     <button mat-icon-button (click)="deleteNewFeature(thisFeature)" class="delete-button">
@@ -48,7 +48,7 @@
             </div>
 
             <div class="new-features-card">
-                <h2>Bug Fixes</h2>
+                <h2>Bug Fixes in {{fixVersionTitle | titlecase}}</h2>
 
                 <mat-card *ngFor="let thisBugFix of issues" class="bug-fix-card">
                     <form class="bug-fix-form">
@@ -81,7 +81,7 @@
         </div>
     </div>
 
-    <button mat-fab color="primary" (click)="downloadData()" class="save-button">
+    <button mat-fab color="primary" (click)="saveData()" class="save-button">
         <mat-icon>save</mat-icon>
     </button>
 </div>

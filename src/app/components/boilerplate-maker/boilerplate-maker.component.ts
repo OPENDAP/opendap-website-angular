@@ -26,6 +26,7 @@ export class BoilerplateMakerComponent {
 
   @ViewChild('autosize', { static: false }) autosize: CdkTextareaAutosize;
 
+  fixVersionTitle: string;
   fixVersion: string;
   newFeatures: NewFeature[] = [new NewFeature()];
   issues: BugFix[];
@@ -34,6 +35,10 @@ export class BoilerplateMakerComponent {
     console.log(this.myControl);
     this.dataReaderService.getBugFixData(this.selectedValue).subscribe(data => {
       console.log(data.body.issues);
+
+      if (data.body.issues.length > 0) {
+        this.fixVersionTitle = data.body.issues[0].fields.fixVersions[0].name;
+      }
 
       this.fixVersion = this.selectedValue;
       this.issues = [];
@@ -76,12 +81,30 @@ export class BoilerplateMakerComponent {
     });
   }
 
-  downloadData() {
-    console.log({
-      newFeatures: this.newFeatures,
-      issues: this.issues
-    });
-  }
+  /**
+     * Saves the page's data to Chrome's default download location.
+     * @param {JSON} data JSON data.
+     * @param {String} fileName the name of the file to be added.
+     */
+  saveData() {
+    let a = document.createElement("a"),
+      json = JSON.stringify({
+        fixVersion: this.fixVersionTitle,
+        newFeatures: this.newFeatures,
+        bugFixes: this.issues
+      }),
+      blob = new Blob([json], { type: "octet/stream" }),
+      url = window.URL.createObjectURL(blob);
+
+    a.href = url;
+    a.download = this.fixVersionTitle.replace(' ', '_') + ".json";
+    document.body.appendChild(a);
+    a.click();
+
+    window.URL.revokeObjectURL(url);
+
+    document.body.removeChild(a);
+  };
 }
 
 export class BugFix {
