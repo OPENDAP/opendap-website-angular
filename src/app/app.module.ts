@@ -15,7 +15,8 @@ import {
   MatInputModule,
   MatCardModule,
   MatTableModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -59,7 +60,8 @@ import { BoilerplateEditorComponent } from './components/boilerplate-maker/boile
     MatCardModule,
     MatTableModule,
     MatAutocompleteModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

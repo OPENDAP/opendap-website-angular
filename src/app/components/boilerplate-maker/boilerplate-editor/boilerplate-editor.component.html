@@ -1,7 +1,10 @@
 <div class="body">
-    <div *ngIf="issues">
+
+    <mat-spinner *ngIf="!loaded" diameter="60" class="main-spinner"></mat-spinner>
+
+    <div *ngIf="fixVersion">
         <div class="new-features-card">
-            <h2 *ngIf="fixVersionTitle">New Features in {{fixVersionTitle | titlecase}}</h2>
+            <h2 *ngIf="fixVersion">New Features in {{fixVersion | titlecase}}</h2>
 
             <mat-card *ngFor="let thisFeature of newFeatures" class="new-feature-card">
                 <button mat-icon-button (click)="deleteNewFeature(thisFeature)" class="delete-button">
@@ -28,7 +31,7 @@
         </div>
 
         <div class="new-features-card">
-            <h2>Bug Fixes in {{fixVersionTitle | titlecase}}</h2>
+            <h2>Bug Fixes in {{fixVersion | titlecase}}</h2>
 
             <mat-card *ngFor="let thisBugFix of issues" class="bug-fix-card">
                 <form class="bug-fix-form">

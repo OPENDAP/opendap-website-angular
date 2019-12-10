@@ -1,11 +1,9 @@
 import { Component, ViewChild, NgZone, OnInit } from '@angular/core';
 
-import { HKVersion } from 'src/app/models/hkVersions';
 import { DataReaderService } from 'src/app/data-reader.service';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 
 import { take } from 'rxjs/operators';
-import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,37 +12,30 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./boilerplate-editor.component.scss']
 })
 export class BoilerplateEditorComponent implements OnInit {
-
-  myControl = new FormControl();
-
   @ViewChild('autosize', { static: false }) autosize: CdkTextareaAutosize;
 
   constructor(private route: ActivatedRoute, private dataReaderService: DataReaderService, private _ngZone: NgZone) { }
 
-  versions: HKVersion[];
-  selectedValue: string;
-  fixVersionTitle: string;
   fixVersion: string;
+
   newFeatures: NewFeature[] = [new NewFeature()];
+
   issues: BugFix[];
+
+  loaded = false;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.fixVersionTitle = params.fixVersion;
-
-      this.dataReaderService.getBugFixData(`'${this.fixVersionTitle}'`).subscribe(data => {
-        console.log(data.body.issues);
-
-        if (data.body.issues.length > 0) {
-          this.fixVersionTitle = data.body.issues[0].fields.fixVersions[0].name;
-        }
-
-        this.fixVersion = this.selectedValue;
+      this.dataReaderService.getBugFixData(`'${params.fixVersion}'`).subscribe(data => {
         this.issues = [];
 
         for (let thisIssue of data.body.issues) {
           this.issues.push(new BugFix(thisIssue.key, thisIssue.fields.summary));
         }
+
+        this.fixVersion = params.fixVersion;
+
+        this.loaded = true;
       });
     });
   }
@@ -89,7 +80,7 @@ export class BoilerplateEditorComponent implements OnInit {
   saveData() {
     let a = document.createElement("a"),
       json = JSON.stringify({
-        fixVersion: this.fixVersionTitle,
+        fixVersion: this.fixVersion,
         newFeatures: this.newFeatures,
         bugFixes: this.issues
       }),
@@ -97,7 +88,7 @@ export class BoilerplateEditorComponent implements OnInit {
       url = window.URL.createObjectURL(blob);
 
     a.href = url;
-    a.download = this.fixVersionTitle.replace(' ', '_') + ".json";
+    a.download = this.fixVersion.replace(' ', '_') + ".json";
     document.body.appendChild(a);
     a.click();
 

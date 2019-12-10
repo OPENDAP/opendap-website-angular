@@ -3,10 +3,10 @@
     margin-bottom: 50px;
 }
 
-mat-card-title {
-    margin-top: 1em !important;
-    margin-bottom: 1.5em;
-    font-weight: 400;
+.main-spinner {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35vh;
 }
 
 .bug-fix-form {
@@ -22,30 +22,6 @@ mat-card-title {
 .key-input {
     max-width: 80px;
 }
-
-
-/** WELCOME DIALOG **/
-
-
-#welcome-dialog h3 {
-    border-bottom: none;
-}
-
-.welcome-dialog {
-    text-align: center;
-    width: 500px;
-    margin-right: auto;
-    position: fixed;
-    margin-left: calc(50% - 250px);
-    margin-top: 25vh;
-    border-radius: 4px;
-    text-align: center;
-    padding: 20px 10px 50px 10px;
-    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 
-    0 24px 38px 3px rgba(0, 0, 0, 0.14), 
-    0 9px 46px 8px rgba(0, 0, 0, 0.12);
-}
-
 
 /** CARDS **/
 
