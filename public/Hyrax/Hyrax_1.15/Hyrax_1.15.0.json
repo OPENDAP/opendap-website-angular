@@ -14,17 +14,17 @@
         {
             "url": "https://opendap.atlassian.net/browse/HK-249",
             "key": "HK-249",
-            "text": "CentOS 6 RPMs include reference to a newer libcurl - breaking installs"
+            "summary": "CentOS 6 RPMs include reference to a newer libcurl - breaking installs"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-10",
             "key": "HYRAX-10",
-            "text": "The fileout netCDF-4 doesn't generate the correct dimensions for aggregated files"
+            "summary": "The fileout netCDF-4 doesn't generate the correct dimensions for aggregated files"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-247",
             "key": "HYRAX-247",
-            "text": "<Dimension> elements in a constrained DMR sometimes have 'random' order"
+            "summary": "<Dimension> elements in a constrained DMR sometimes have 'random' order"
         }
     ]
 }

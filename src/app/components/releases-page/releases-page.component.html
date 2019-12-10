@@ -14,7 +14,7 @@
 
         <h2>Bug Fixes in {{ data.fixVersion | titlecase }}</h2>
 
-        <table mat-table>
+        <table>
             <tr>
                 <th>Key</th>
                 <th>Notes</th>
@@ -24,7 +24,7 @@
                     <a href={{bugFix.url}} target="_blank">{{ bugFix.key }}</a>
                 </td>
                 <td>
-                    {{ bugFix.text }}
+                    {{ bugFix.summary }}
                 </td>
             </tr>
         </table>

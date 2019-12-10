@@ -22,97 +22,97 @@
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-248",
             "key": "HYRAX-248",
-            "text": "Fixed the GeoTiff and JPEG2000 responses; in some cases the raster output was upside down."
+            "summary": "Fixed the GeoTiff and JPEG2000 responses; in some cases the raster output was upside down."
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-263",
             "key": "HYRAX-263",
-            "text": "Geotiff output appears to have the latitude axis inverted."
+            "summary": "Geotiff output appears to have the latitude axis inverted."
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-281",
             "key": "HYRAX-281",
-            "text": "The scale_array() server function now works with 3D arrays."
+            "summary": "The scale_array() server function now works with 3D arrays."
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-283",
             "key": "HYRAX-283",
-            "text": "fileout geotiff doesn't work for NCEP dataset"
+            "summary": "fileout geotiff doesn't work for NCEP dataset"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-294",
             "key": "HYRAX-294",
-            "text": "Make this function (scale_grid) work correctly when subsetting an array drops it down to 2D "
+            "summary": "Make this function (scale_grid) work correctly when subsetting an array drops it down to 2D "
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-309",
             "key": "HYRAX-309",
-            "text": "Test the geo functions with real data"
+            "summary": "Test the geo functions with real data"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-362",
             "key": "HYRAX-362",
-            "text": "Make the GeoTiff (GDAL) handler work with NCML aggregations"
+            "summary": "Make the GeoTiff (GDAL) handler work with NCML aggregations"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-417",
             "key": "HYRAX-417",
-            "text": "Determine axis order for scale_grid() and scale_array() functions."
+            "summary": "Determine axis order for scale_grid() and scale_array() functions."
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-432",
             "key": "HYRAX-432",
-            "text": "WCS-2.0 war file/ deployment is broken"
+            "summary": "WCS-2.0 war file/ deployment is broken"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-458",
             "key": "HYRAX-458",
-            "text": "Use of mkstemp/mkstemps in libdap and bes is bogus"
+            "summary": "Use of mkstemp/mkstemps in libdap and bes is bogus"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-465",
             "key": "HYRAX-465",
-            "text": "The bes (travis)  build is broken"
+            "summary": "The bes (travis)  build is broken"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-491",
             "key": "HYRAX-491",
-            "text": "Missing single source of truth for supported Format"
+            "summary": "Missing single source of truth for supported Format"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-507",
             "key": "HYRAX-507",
-            "text": "Fix double quote problems with WCS constraint expression eval"
+            "summary": "Fix double quote problems with WCS constraint expression eval"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-529",
             "key": "HYRAX-529",
-            "text": "Hyrax fails to start using \"service besd start\""
+            "summary": "Hyrax fails to start using \"service besd start\""
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-547",
             "key": "HYRAX-547",
-            "text": "FreeForm handler fmt file for ASCII data with two header lines"
+            "summary": "FreeForm handler fmt file for ASCII data with two header lines"
         },
         {
             "url": "https://opendap.atlassian.net/browse/HYRAX-548",
             "key": "HYRAX-548",
-            "text": "logrotate.d in the release 1.13.4 RPM restarts bes and tomcat every day"
+            "summary": "logrotate.d in the release 1.13.4 RPM restarts bes and tomcat every day"
         },
         {
             "url": "https://opendap.atlassian.net/browse/4",
             "key": "N/A",
-            "text": "Fixed bug in the generation of the \"viewers\" pages."
+            "summary": "Fixed bug in the generation of the \"viewers\" pages."
         },
         {
             "url": "https://opendap.atlassian.net/browse/4",
             "key": "N/A",
-            "text": "Refactored the software used to serve GeoTiff files (gdal_handler) so it no longer keeps the GDALDataset handle open. This code was keeping the GDALDataset handle open across calls to the RequestHandler when returning data responses and this breaks the NCML handler."
+            "summary": "Refactored the software used to serve GeoTiff files (gdal_handler) so it no longer keeps the GDALDataset handle open. This code was keeping the GDALDataset handle open across calls to the RequestHandler when returning data responses and this breaks the NCML handler."
         },
         {
             "url": "https://opendap.atlassian.net/browse/4",
             "key": "N/A",
-            "text": "Fixed the integration tests in bes/cmdln."
+            "summary": "Fixed the integration tests in bes/cmdln."
         }
     ]
 }
