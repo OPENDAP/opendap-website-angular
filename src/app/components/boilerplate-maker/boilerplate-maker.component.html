@@ -12,6 +12,7 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
+
             <button mat-icon-button (click)="startTemplate()">
                 <mat-icon>keyboard_arrow_right</mat-icon>
             </button>
@@ -31,6 +32,7 @@
                             <input [(ngModel)]="thisFeature.title" name=thisFeature.title matInput placeholder="Title"
                                 value="{{thisFeature.title}}" autocomplete="off">
                         </mat-form-field>
+                        
                         <mat-form-field class="full-width">
                             <textarea [(ngModel)]="thisFeature.body" name=thisFeature.body matInput
                                 placeholder="Description" value="{{thisFeature.body}}" cdkTextareaAutosize
@@ -40,7 +42,7 @@
                     </form>
                 </mat-card>
 
-                <button mat-icon-button (click)="addNewFeature()">
+                <button mat-icon-button class="center-button" (click)="addNewFeature()">
                     <mat-icon>add</mat-icon>
                 </button>
             </div>
@@ -54,22 +56,25 @@
                             <input [(ngModel)]="thisBugFix.key" name=thisBugFix.key matInput placeholder=""
                                 value="{{thisBugFix.key}}" autocomplete="off">
                         </mat-form-field>
+
                         <mat-form-field class="full-width">
                             <textarea [(ngModel)]="thisBugFix.summary" name=thisBugFix.summary matInput
                                 placeholder="" value="{{thisBugFix.summary}}" cdkTextareaAutosize
                                 #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
                                 cdkAutosizeMaxRows="10"></textarea>
                         </mat-form-field>
+                        
                         <button mat-icon-button class="bug-fix-button" (click)="updateDescription(thisBugFix)">
                             <mat-icon>save_alt</mat-icon>
                         </button>
+                        
                         <button mat-icon-button class="bug-fix-button" (click)="deleteBugFix(thisBugFix)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </form>
                 </mat-card>
 
-                <button mat-icon-button (click)="addNewBugFix()">
+                <button mat-icon-button class="center-button" (click)="addNewBugFix()">
                     <mat-icon>add</mat-icon>
                 </button>
             </div>
