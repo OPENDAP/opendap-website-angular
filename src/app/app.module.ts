@@ -29,6 +29,7 @@ import { BoilerplateComponent } from './components/boilerplate/boilerplate.compo
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { HyraxComponent } from './components/hyrax/hyrax.component';
 import { BoilerplateMakerComponent } from './components/boilerplate-maker/boilerplate-maker.component';
+import { BoilerplateEditorComponent } from './components/boilerplate-maker/boilerplate-editor/boilerplate-editor.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { BoilerplateMakerComponent } from './components/boilerplate-maker/boiler
     AboutUsComponent,
     HyraxComponent,
     BoilerplateMakerComponent,
+    BoilerplateEditorComponent,
   ],
   imports: [
     BrowserModule,
