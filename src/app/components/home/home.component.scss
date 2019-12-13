@@ -1,0 +1,66 @@
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.top-div {
+    padding-top: 25vh;
+    height: calc(100vh - 25vh);
+    text-align: center;
+    background: whitesmoke;
+
+    h2 {
+        margin-top: 15vh;
+    }
+}
+
+.large-icon {
+    font-size: 50px;
+    width: 50px;
+}
+
+.do-info {
+    text-align: center;
+    color: white;
+    background: cornflowerblue;
+    padding-top: 50px;
+    height: 75vh;
+
+    h1 {
+        margin-top: 12vh;
+        margin-bottom: 14vh;
+        text-align: center;
+    }
+
+    .info-icon {
+        display: flex;
+        text-align: center;
+        width: 100%;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+
+        div {
+            max-width: 500px;
+            min-width: 300px;
+            text-align: justify;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 25px;
+            padding-top: 50px;
+        }
+    }
+}
+
+.our-software {
+    display: flex;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+
+    mat-card {
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
