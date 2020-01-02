@@ -45,6 +45,25 @@ app.route('/api/content/markdown/:pageID').get((req, res) => {
     });
 });
 
+app.route('/api/content/faq').get((req, res) => {
+
+    let toReturn = [];
+
+    let files = fs.readdirSync('public/Site/support/faq');
+
+    for (const thisDir of files) {
+        let thisFAQSection = [];
+
+        for(const thisFAQ of fs.readdirSync(`public/Site/support/faq/${thisDir}`)) {
+            thisFAQSection.push(fs.readFileSync(`public/Site/support/faq/${thisDir}/${thisFAQ}`, 'utf8'));
+        }
+
+        toReturn.push(thisFAQSection);
+    }
+
+    res.status(200).send(toReturn);
+});
+
 app.route('/api/versions').get((req, res) => {
     fs.readdir('public/Hyrax', (err, files) => {
         if (err) throw err;
