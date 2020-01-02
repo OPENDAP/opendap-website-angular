@@ -33,6 +33,7 @@ import { BoilerplateMakerComponent } from './components/boilerplate-maker/boiler
 import { BoilerplateEditorComponent } from './components/boilerplate-maker/boilerplate-editor/boilerplate-editor.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { NavComponent } from './components/nav/nav.component';
     BoilerplateEditorComponent,
     HomeComponent,
     NavComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
