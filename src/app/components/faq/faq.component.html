@@ -1,0 +1,59 @@
+<div class="body">
+    <mat-accordion>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    General
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let thing of general">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{thing.title}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div [innerHTML]="parseMarkdown(thing.md)"></div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-expansion-panel>
+
+
+
+
+
+
+        <mat-expansion-panel *ngFor="let thing of clientIssues">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{thing.title}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div [innerHTML]="parseMarkdown(thing.md)"></div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel *ngFor="let thing of serverIssues">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{thing.title}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div [innerHTML]="parseMarkdown(thing.md)"></div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel *ngFor="let thing of developers">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{thing.title}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div [innerHTML]="parseMarkdown(thing.md)"></div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

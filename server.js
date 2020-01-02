@@ -55,7 +55,15 @@ app.route('/api/content/faq').get((req, res) => {
         let thisFAQSection = [];
 
         for(const thisFAQ of fs.readdirSync(`public/Site/support/faq/${thisDir}`)) {
-            thisFAQSection.push(fs.readFileSync(`public/Site/support/faq/${thisDir}/${thisFAQ}`, 'utf8'));
+            let faqSection = fs.readFileSync(`public/Site/support/faq/${thisDir}/${thisFAQ}`, 'utf8');
+            
+            let split = faqSection.split("\n")[0];
+            let title = split.substring(2, split.length-1);
+
+            thisFAQSection.push({
+                title: title,
+                md: faqSection.substring(split.length+3, faqSection.length)
+            });
         }
 
         toReturn.push(thisFAQSection);

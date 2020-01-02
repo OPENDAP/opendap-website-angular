@@ -34,6 +34,8 @@ import { BoilerplateEditorComponent } from './components/boilerplate-maker/boile
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { FaqSectionComponent } from './components/faq/faq-section/faq-section.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     NavComponent,
     FooterComponent,
+    FaqComponent,
+    FaqSectionComponent,
   ],
   imports: [
     BrowserModule,

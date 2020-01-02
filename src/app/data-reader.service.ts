@@ -39,6 +39,10 @@ export class DataReaderService {
     return this.http.get<Versions>(`${this.serverURL}/api/versions`);
   }
 
+  getFAQData(): Observable<any> {
+    return this.http.get<any>(`${this.serverURL}/api/content/faq`);
+  }
+
   getVersionPageData(version: string): Observable<any> {
     return this.http.get<Versions>(`${this.serverURL}/api/versions/${version}`);
   }
