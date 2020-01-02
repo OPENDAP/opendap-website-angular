@@ -1,0 +1,18 @@
+<nav class="mat-elevation-z2">
+    <a routerLink="">
+        <button mat-button>
+            <img src="../assets/images/extension-icon.png" class="nav-image"> OPeNDAP
+        </button>
+    </a>
+
+    <ul>
+        <li><a routerLink="/hyrax"><button mat-button>Hyrax</button></a></li>
+        <button mat-button [matMenuTriggerFor]="menu">Releases</button>
+        <mat-menu #menu="matMenu">
+            <a *ngFor="let version of versions" routerLink="/releases/{{version}}">
+                <button mat-menu-item>{{version}}</button>
+            </a>
+        </mat-menu>
+        <li><a routerLink="/about-us"><button mat-button>About Us</button></a></li>
+    </ul>
+</nav>

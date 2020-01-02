@@ -32,6 +32,7 @@ import { HyraxComponent } from './components/hyrax/hyrax.component';
 import { BoilerplateMakerComponent } from './components/boilerplate-maker/boilerplate-maker.component';
 import { BoilerplateEditorComponent } from './components/boilerplate-maker/boilerplate-editor/boilerplate-editor.component';
 import { HomeComponent } from './components/home/home.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { HomeComponent } from './components/home/home.component';
     BoilerplateMakerComponent,
     BoilerplateEditorComponent,
     HomeComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

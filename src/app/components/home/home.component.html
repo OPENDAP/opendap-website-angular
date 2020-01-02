@@ -1,6 +1,5 @@
 <div class="body">
-
-    <div class="top-div">
+    <div class="top-div mat-elevation-z2">
         <h1>OPeNDAP</h1>
         <h2>Advanced Software for Remote Data Retrieval</h2>
 
@@ -28,23 +27,25 @@
         </div>
     </div>
 
-    <div class="our-software">
+    <div class="our-software mat-elevation-z12">
 
         <h1>Software</h1>
 
         <div class='software'>
             <mat-card>
                 <mat-card-title>Hyrax</mat-card-title>
-                <mat-card-subtitle>The next generation server from OPeNDAP.</mat-card-subtitle>
+                <mat-card-subtitle>The next generation server from OPeNDAP</mat-card-subtitle>
                 <mat-card-content>
                     Hyrax uses a modular design that employs a lightweight Java servlet to provide the public-accessible
                     client interface, and a back-end daemon, the BES, to handle the heavy lifting. The BES uses the same
                     handlers that are used with Server3 (also know as the CGI Server) but loads those at run time.
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
-                        <mat-icon>link</mat-icon>
-                    </button>
+                    <a routerLink="/hyrax">
+                        <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                            <mat-icon>link</mat-icon>
+                        </button>
+                    </a>
                 </mat-card-actions>
             </mat-card>
 

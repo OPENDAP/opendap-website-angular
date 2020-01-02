@@ -7,16 +7,7 @@ import { Versions } from './models/versions';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'opendap-angular';
-
-  versions: Versions[];
-
-  constructor(private dataReaderService: DataReaderService) { }
-
-  ngOnInit() {
-    this.dataReaderService.getReleaseData().subscribe(data => {
-      this.versions = data.versions;
-    });
-  }
+  constructor() { }  
 }
