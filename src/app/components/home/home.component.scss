@@ -4,13 +4,27 @@ h1 {
 }
 
 .top-div {
-    padding-top: 25vh;
-    height: calc(100vh - 25vh);
+    padding-top: 18vh;
     text-align: center;
-    background: whitesmoke;
+    background: cornflowerblue;
+    color: white;
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: .5em;
+    }
 
     h2 {
-        margin-top: 15vh;
+        margin-top: 0;
+    }
+
+    h3 {
+        padding-bottom: 5em;
+    }
+
+    img {
+        margin-top: 2em;
+        width: 250px;
     }
 }
 
@@ -21,21 +35,17 @@ h1 {
 
 .do-info {
     text-align: center;
-    color: white;
-    background: cornflowerblue;
-    padding-top: 50px;
-    height: 75vh;
-
+    padding-top: 6em;
+    padding-bottom: 6em;
     h1 {
-        margin-top: 12vh;
-        margin-bottom: 14vh;
+        margin-top: 0;
+        margin-bottom: 1em;
         text-align: center;
     }
 
     .info-icon {
         display: flex;
         text-align: center;
-        width: 100%;
         max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
@@ -52,14 +62,35 @@ h1 {
 }
 
 .our-software {
-    display: flex;
-    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    background: cornflowerblue;
+    color: white;
+    padding-top: 6em;
+    padding-bottom: 8em;
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 2em;
+    }
 
     mat-card {
         max-width: 450px;
+        margin: 10px;
+    }
+
+    mat-card-title {
+        text-align: center;
+    }
+
+    mat-card-subtitle {
+        text-align: center;
+    }
+
+    .software {
+        display: flex;
         margin-left: auto;
         margin-right: auto;
+        width: fit-content;
     }
 }
