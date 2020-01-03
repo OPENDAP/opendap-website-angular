@@ -37,6 +37,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { FaqSectionComponent } from './components/faq/faq-section/faq-section.component';
 import { FaqSearchComponent } from './components/faq/faq-search/faq-search.component';
+import { SupportComponent } from './components/support/support.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { FaqSearchComponent } from './components/faq/faq-search/faq-search.compo
     FaqComponent,
     FaqSectionComponent,
     FaqSearchComponent,
+    SupportComponent,
   ],
   imports: [
     BrowserModule,

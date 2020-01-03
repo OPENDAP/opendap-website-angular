@@ -7,15 +7,17 @@ import { BoilerplateMakerComponent } from './components/boilerplate-maker/boiler
 import { BoilerplateEditorComponent } from './components/boilerplate-maker/boilerplate-editor/boilerplate-editor.component';
 import { HomeComponent } from './components/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { SupportComponent } from './components/support/support.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'releases/:version', component: ReleasesPageComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'hyrax', component: HyraxComponent },
-  { path: 'devtools/boilerplate', component: BoilerplateMakerComponent},
-  { path: 'devtools/boilerplate/:fixVersion', component: BoilerplateEditorComponent},
-  { path: 'support/faq', component: FaqComponent},
+  { path: 'support', component: SupportComponent },
+  { path: 'support/faq', component: FaqComponent },
+  { path: 'devtools/boilerplate', component: BoilerplateMakerComponent },
+  { path: 'devtools/boilerplate/:fixVersion', component: BoilerplateEditorComponent },
 ];
 
 @NgModule({
