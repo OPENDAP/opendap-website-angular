@@ -1,1 +1,19 @@
-<p>faq-section works!</p>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{ sectionTitle }}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let thing of faqSection">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{thing.title}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div [innerHTML]="parseMarkdown(thing.md)"></div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</mat-expansion-panel>

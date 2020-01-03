@@ -1,11 +1,14 @@
 .body {
-    padding-top: 50px;
-}
+    padding-top: 4em;
 
-mat-expansion-panel {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2.5em;
 }
 
 p {

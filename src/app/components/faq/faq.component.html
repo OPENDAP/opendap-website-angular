@@ -1,59 +1,13 @@
 <div class="body">
+    <h1>How can we help you?</h1>
+    
+    <app-faq-search *ngIf="data" [data]="data"></app-faq-search>
+
+    <h1>Frequently Asked Questions</h1>
     <mat-accordion>
-
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    General
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <mat-accordion>
-                <mat-expansion-panel *ngFor="let thing of general">
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            {{thing.title}}
-                        </mat-panel-title>
-                    </mat-expansion-panel-header>
-
-                    <div [innerHTML]="parseMarkdown(thing.md)"></div>
-                </mat-expansion-panel>
-            </mat-accordion>
-        </mat-expansion-panel>
-
-
-
-
-
-
-        <mat-expansion-panel *ngFor="let thing of clientIssues">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{thing.title}}
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <div [innerHTML]="parseMarkdown(thing.md)"></div>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel *ngFor="let thing of serverIssues">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{thing.title}}
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <div [innerHTML]="parseMarkdown(thing.md)"></div>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel *ngFor="let thing of developers">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{thing.title}}
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <div [innerHTML]="parseMarkdown(thing.md)"></div>
-        </mat-expansion-panel>
+        <app-faq-section *ngIf="general" [sectionTitle]="'General'" [faqSection]="general"></app-faq-section>
+        <app-faq-section *ngIf="clientIssues" [sectionTitle]="'Client Issues'"[faqSection]="clientIssues"></app-faq-section>
+        <app-faq-section *ngIf="serverIssues" [sectionTitle]="'Server Issues'" [faqSection]="serverIssues"></app-faq-section>
+        <app-faq-section *ngIf="developers" [sectionTitle]="'Developers'" [faqSection]="developers"></app-faq-section>
     </mat-accordion>
 </div>

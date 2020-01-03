@@ -10,6 +10,8 @@ import * as showdown from 'showdown';
 })
 export class FaqComponent implements OnInit {
 
+  data: [];
+
   general: [];
   clientIssues: [];
   serverIssues: [];
@@ -19,6 +21,8 @@ export class FaqComponent implements OnInit {
 
   ngOnInit() {
     this.dataReaderService.getFAQData().subscribe(data => {
+      this.data = data;
+      
       this.general = data[0];
       this.clientIssues = data[1];
       this.serverIssues = data[2];
