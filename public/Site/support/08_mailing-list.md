@@ -21,7 +21,7 @@ Moderate Traffic -
 [Tech Archive]
 [[Group](https://groups.google.com/a/opendap.org/group/opendap-tech/topics)]
 
-### The OPeNDAP Announcements list (opendap-announce@opendap.org>)
+### The OPeNDAP Announcements list (opendap-announce@opendap.org)
 
 This list provides a way for us to contact users, and those who run our servers. This is a very low-traffic list, only OPeNDAP can post to it and we will limit our posts to only those that contain very important time-sensitive information. We are making these limits because we want everyone who uses our software to subscribe. The other lists will carry the day-to-day traffic.
 
@@ -30,7 +30,7 @@ Very Low Traffic -
 [Announce Archives]
 [[Group](https://groups.google.com/a/opendap.org/group/opendap-announce/topics)]
 
-### The OPeNDAP mailing list (OPeNDAP@opendap.org>)
+### The OPeNDAP mailing list (OPeNDAP@opendap.org)
 
 This list is for discussions of all things OPeNDAP: Data; Policy; and Community efforts. It's fine to use this list to ask questions, but the support@opendap.org email address is more appropriate for detailed questions and the opendap-tech list (below) is probably a better place for technical discussions.
 
