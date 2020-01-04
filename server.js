@@ -1,6 +1,5 @@
 const express = require('express');
 const http = require('http');
-const https = require('https');
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
@@ -45,6 +44,24 @@ app.route('/api/content/markdown/:pageID').get((req, res) => {
     });
 });
 
+app.route('/api/content/support').get((req, res) => {
+    res.status(200).send({
+        topText: processMarkdownFile(fs.readFileSync(`public/site/support/01_support.md`, 'utf8')),
+        documentation: {
+            userDocumentation: processMarkdownFile(fs.readFileSync(`public/site/support/02_user-docs.md`, 'utf8')),
+            designDocumentation: processMarkdownFile(fs.readFileSync(`public/site/support/03_design-docs.md`, 'utf8')),
+            papersAndReports: processMarkdownFile(fs.readFileSync(`public/site/support/04_papers-and-reports.md`, 'utf8'))
+        },
+        software: {
+            clientSoftware: processMarkdownFile(fs.readFileSync(`public/site/support/05_available-client-software.md`, 'utf8')),
+            serverSoftware: processMarkdownFile(fs.readFileSync(`public/site/support/06_available-server-software.md`, 'utf8')),
+            dataHandlers: processMarkdownFile(fs.readFileSync(`public/site/support/07_data-handlers.md`, 'utf8')),
+            wishList: processMarkdownFile(fs.readFileSync(`public/site/support/09_software-wish-list.md`, 'utf8'))
+        },
+        contactInfo: processMarkdownFile(fs.readFileSync(`public/site/support/08_mailing-list.md`, 'utf8'))
+    });
+});
+
 app.route('/api/content/faq').get((req, res) => {
 
     let toReturn = [];
@@ -54,16 +71,9 @@ app.route('/api/content/faq').get((req, res) => {
     for (const thisDir of files) {
         let thisFAQSection = [];
 
-        for(const thisFAQ of fs.readdirSync(`public/Site/support/faq/${thisDir}`)) {
+        for (const thisFAQ of fs.readdirSync(`public/Site/support/faq/${thisDir}`)) {
             let faqSection = fs.readFileSync(`public/Site/support/faq/${thisDir}/${thisFAQ}`, 'utf8');
-            
-            let split = faqSection.split("\n")[0];
-            let title = split.substring(2, split.length-1);
-
-            thisFAQSection.push({
-                title: title,
-                md: faqSection.substring(split.length+3, faqSection.length)
-            });
+            thisFAQSection.push(processMarkdownFile(faqSection));
         }
 
         toReturn.push(thisFAQSection);
@@ -71,6 +81,16 @@ app.route('/api/content/faq').get((req, res) => {
 
     res.status(200).send(toReturn);
 });
+
+function processMarkdownFile(md) {
+    let split = md.split("\n")[0];
+    let title = split.substring(2, split.length - 1);
+
+    return({
+        title: title,
+        md: md.substring(split.length + 3, md.length)
+    });
+}
 
 app.route('/api/versions').get((req, res) => {
     fs.readdir('public/Hyrax', (err, files) => {

@@ -16,7 +16,8 @@ import {
   MatCardModule,
   MatTableModule,
   MatAutocompleteModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTabsModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -75,7 +76,8 @@ import { SupportComponent } from './components/support/support.component';
     MatTableModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataReaderService } from 'src/app/data-reader.service';
+
+import * as showdown from 'showdown';
 
 @Component({
   selector: 'app-support',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupportComponent implements OnInit {
 
-  constructor() { }
+  data: any;
+
+  constructor(private dataReaderService: DataReaderService) { }
 
   ngOnInit() {
+    this.dataReaderService.getSupportData().subscribe(data => {
+      this.data = data;
+    });
   }
 
+  parseMarkdown(md: string) {
+    return new showdown.Converter().makeHtml(md);
+  }
 }

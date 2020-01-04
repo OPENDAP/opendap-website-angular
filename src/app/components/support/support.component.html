@@ -1,1 +1,50 @@
-<p>support works!</p>
+<mat-spinner *ngIf="!data"></mat-spinner>
+
+<div *ngIf="data" class="body">
+
+    <h1>Support</h1>
+
+    <div [innerHTML]="parseMarkdown(data.topText.md)"></div>
+
+    <p>
+        See the support pages below, our check out our <a routerLink="/support/faq">FAQ</a>.
+    </p>
+
+    <h1>Documentation</h1>
+
+    <mat-tab-group dynamicHeight>
+        <mat-tab label="{{data.documentation.userDocumentation.title}}">
+            <mat-card [innerHTML]="parseMarkdown(data.documentation.userDocumentation.md)" class="narrow-margin">
+            </mat-card>
+        </mat-tab>
+        <mat-tab label="{{data.documentation.designDocumentation.title}}">
+            <mat-card [innerHTML]="parseMarkdown(data.documentation.designDocumentation.md)" class="narrow-margin">
+            </mat-card>
+        </mat-tab>
+        <mat-tab label="{{data.documentation.papersAndReports.title}}">
+            <mat-card [innerHTML]="parseMarkdown(data.documentation.papersAndReports.md)" class="narrow-margin">
+            </mat-card>
+        </mat-tab>
+    </mat-tab-group>
+
+    <h1>Software</h1>
+
+    <mat-tab-group dynamicHeight>
+        <mat-tab label="{{data.software.clientSoftware.title}}">
+            <mat-card [innerHTML]="parseMarkdown(data.software.clientSoftware.md)" class="narrow-margin"></mat-card>
+        </mat-tab>
+        <mat-tab label="{{data.software.serverSoftware.title}}">
+            <mat-card [innerHTML]="parseMarkdown(data.software.serverSoftware.md)" class="narrow-margin"></mat-card>
+        </mat-tab>
+        <mat-tab label="{{data.software.dataHandlers.title}}">
+            <mat-card [innerHTML]="parseMarkdown(data.software.dataHandlers.md)" class="narrow-margin"></mat-card>
+        </mat-tab>
+    </mat-tab-group>
+
+    <h1>Mailing List</h1>
+
+    <mat-card [innerHTML]="parseMarkdown(data.contactInfo.md)"></mat-card>
+    <!--     
+    <mat-card class="mat-elevation-z5" *ngFor="let thisMarkdown of data" [innerHTML]="parseMarkdown(thisMarkdown)">
+    </mat-card> -->
+</div>
