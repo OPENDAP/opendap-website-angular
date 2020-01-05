@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataReaderService } from 'src/app/data-reader.service';
 
 import * as showdown from 'showdown';
@@ -6,7 +6,8 @@ import * as showdown from 'showdown';
 @Component({
   selector: 'app-support',
   templateUrl: './support.component.html',
-  styleUrls: ['./support.component.scss']
+  styleUrls: ['./support.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SupportComponent implements OnInit {
 
