@@ -1,5 +1,5 @@
-<div class="body">
-    <div class="top-div mat-elevation-z2">
+<div>
+    <div class="candy-cane top-div">
         <h1>OPeNDAP™</h1>
         <h2>Advanced Software for Remote Data Retrieval</h2>
 
@@ -8,30 +8,125 @@
         <h3>OPeNDAP is a framework that simplifies<br>all aspects of scientific data networking.</h3>
     </div>
 
-    <div class="do-info">
-        <h1>What you can do with<br>OPeNDAP</h1>
-
-        <div class="info-icon">
+    <div class="candy-cane subsection">
+        <div class="icon-left icon-content">
+            <mat-icon class="massive-icon">brush</mat-icon>
             <div>
-                <mat-icon class="large-icon">dynamic_feed</mat-icon>
-                <p>Transform your existing applications into OPeNDAP clients.</p>
-            </div>
-            <div>
-                <mat-icon class="large-icon">cloud_queue</mat-icon>
-                <p>Make your local data accessible to remote locations, regardless of local storage format.</p>
-            </div>
-            <div>
-                <mat-icon class="large-icon">remove_shopping_cart</mat-icon>
-                <p>Take advantage of our paid support, or implement it yourself for free.</p>
+                <h1>Design Principles</h1>
+                
+                <p>
+                    The design of the OPeNDAP software is based on the following two considerations:
+                </p>
+                <ol>
+                    <li>
+                        Data are often most appropriately distributed by the individual
+                        or group that has developed them.
+                    </li>
+                    <li>
+                        The user will in general like to access data from the application software
+                        with which they are most familiar.
+                    </li>
+                </ol>
+                <p>
+                    This has resulted in a highly distributed system that allows users to control the
+                    distribution of their own data and the way they access data from remote sites.
+                </p>
             </div>
         </div>
     </div>
 
-    <div class="our-software mat-elevation-z2">
+    <div class="candy-cane subsection">
+        <div class="icon-right icon-content">
+            <div>
+                <h1>User Application <mat-icon>arrow_forward</mat-icon> DAP Client</h1>
+                <p>
+                    Once a user's data analysis application (or API) is made network-savvy
+                    with the OPeNDAP tools, the scope of an application's search for data
+                    is extended, because remote data becomes as accessible as local data.
+                    A DAP-enabled application can...
+                </p>
+                <ul>
+                    <li>Get any data anywhere on the web that is served by a DAP server.</li>
+                    <li>Use data from any DAP server, regardless of its native format.</li>
+                    <li>Still perform all its original functions for accessing data locally.</li>
+                </ul>
+                <p>
+                    The truly remarkable part: you don't have to rewrite the code to
+                    enable many applications to work as a DAP clients.
+                </p>
+            </div>
+            <mat-icon class="massive-icon">code</mat-icon>
+        </div>
+    </div>
 
+    <div class="candy-cane subsection">
+        <div class="icon-left icon-content">
+            <mat-icon class="massive-icon">beach_access</mat-icon>
+            <div>
+                <h1>Not Just Oceanography</h1>
+                <p>
+                    Although the OPeNDAP software was originally designed and developed
+                    by oceanographers and computer scientists for oceanographic data
+                    (as part of the DODS and NVODS projects),
+                    there is nothing in the design of the OPeNDAP software that constrains its use
+                    to oceanograhy.
+                </p>
+                <p>
+                    Indeed, it has been adopted by the High Altitude Observatory icon-right
+                    and is being considered by segments of the meteorological and space science communities.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="candy-cane subsection">
+        <div class="icon-right icon-content">
+            <div>
+                <h1>Community-Driven Projects</h1>
+                <p>
+                    OPeNDAP software is open-source and is intended to facilitate building
+                    community-driven projects for developing end-to-end systems that can locate,
+                    understand, access, and use scientific data. OPeNDAP has already developed
+                    a flexible data model, a transport protocol, and the several software
+                    frameworks, inlcuding...
+                </p>
+                <ul>
+                    <li>C++ and Java implementations of the data model and transport protocol</li>
+                    <li>A set of DODS servers</li>
+                    <li>A set of DODS clients</li>
+                </ul>
+            </div>
+            <mat-icon class="massive-icon">emoji_people</mat-icon>
+        </div>
+    </div>
+
+    <div class="candy-cane subsection">
+        <div class="icon-left icon-content">
+            <mat-icon class="massive-icon">language</mat-icon>
+            <div>                
+                <h1>What Does OPeNDAP Do For You?</h1>
+                <p>
+                    OPeNDAP allows you to access remote data over the web...
+                </p>
+                <ul>
+                    <li>Using familiar data analysis and visualization packages such as Matlab, Ferret, and IDL.</li>
+                    <li>Without worrying about data storage formats.</li>
+                    <li>Accessing only the data of interest.</li>
+                </ul>
+
+                <p>
+                    OPeNDAP also allows you to make your data available remotely.
+                    Your data can be in a variety of formats, including netCDF, HDF, and 
+                    <a href="https://www.opendap.org/support/OPeNDAP-servers">many more</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="candy-cane our-software">
         <h1>Software</h1>
 
-        <div class='software'>
+        <div class="software">
             <mat-card>
                 <mat-card-title>Hyrax</mat-card-title>
                 <mat-card-subtitle>The next generation server from OPeNDAP</mat-card-subtitle>
@@ -53,9 +148,8 @@
                 <mat-card-title>Libdap</mat-card-title>
                 <mat-card-subtitle>C++ SDK that contains an implementation of DAP 2.0 and DAP4.0</mat-card-subtitle>
                 <mat-card-content>
-                    The libdap includes both Client- and Server-side support classes. Our software distributions are
-                    signed
-                    using a public/private key pair.
+                    The libdap includes both Client- and Server-side support classes.
+                    Our software distributions are signed using a public/private key pair.
                 </mat-card-content>
             </mat-card>
         </div>

@@ -1,71 +1,84 @@
 h1 {
     font-size: 40px;
     text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.candy-cane:nth-child(odd) {
+    background: cornflowerblue;
+    color: white;
+    // box-shadow: 0px 0px 16px -6px rgba(0,0,0,0.2);
 }
 
 .top-div {
     padding-top: 18vh;
     text-align: center;
-    background: cornflowerblue;
-    color: white;
-
-    h1 {
-        margin-top: 0;
-        margin-bottom: .5em;
-    }
 
     h2 {
-        margin-top: 0;
+        margin-top: .5em;
     }
-
+    
     h3 {
         padding-bottom: 5em;
+        margin-bottom: 0px;
     }
-
+    
     img {
         margin-top: 2em;
         width: 250px;
     }
 }
 
-.large-icon {
-    font-size: 50px;
-    width: 50px;
-}
+.subsection {
+    padding-top: 8em;
+    padding-bottom: 8em;
 
-.do-info {
-    text-align: center;
-    padding-top: 6em;
-    padding-bottom: 6em;
     h1 {
-        margin-top: 0;
         margin-bottom: 1em;
-        text-align: center;
+        text-align: left;
     }
 
-    .info-icon {
-        display: flex;
-        text-align: center;
-        max-width: 1200px;
+    p {
+        text-align: justify;
+    }
+
+    ol li {
+        margin-bottom: .5em;
+    }
+    
+    ul li {
+        margin-bottom: .1em;
+    }
+
+    .massive-icon {
+        font-size: 200px;
+        height: 200px;
+        width: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .icon-content {
+        display: grid;
+        column-gap: 5em;
+        max-width: 800px;
         margin-left: auto;
         margin-right: auto;
-
-        div {
-            max-width: 500px;
-            min-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 25px;
-            padding-top: 50px;
-        }
+    }
+    
+    .icon-right {
+        grid-template-columns: 1fr 0fr;
+    }
+    
+    .icon-left {
+        grid-template-columns: 0fr 1fr;
     }
 }
 
 .our-software {
     margin-left: auto;
     margin-right: auto;
-    background: cornflowerblue;
-    color: white;
     padding-top: 6em;
     padding-bottom: 8em;
 
