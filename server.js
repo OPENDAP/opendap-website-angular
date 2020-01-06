@@ -5,6 +5,9 @@ const fs = require('fs');
 const cors = require('cors');
 const request = require('request');
 
+const showdown = require('showdown');
+const converter = new showdown.Converter();
+
 const app = express();
 const port = process.env.PORT || 3001;
 
@@ -88,7 +91,7 @@ function processMarkdownFile(md) {
 
     return({
         title: title,
-        md: md.substring(split.length + 3, md.length)
+        md: converter.makeHtml(md.substring(split.length + 3, md.length))
     });
 }
 

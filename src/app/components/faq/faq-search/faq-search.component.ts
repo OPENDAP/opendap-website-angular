@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import * as showdown from 'showdown';
-
 @Component({
   selector: 'app-faq-search',
   templateUrl: './faq-search.component.html',
@@ -33,9 +31,5 @@ export class FaqSearchComponent {
 
   removePunctuation(thisString: string): string {
     return thisString.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s{2,}/g, " ");
-  }
-
-  parseMarkdown(md: string) {
-    return new showdown.Converter().makeHtml(md);
   }
 }
