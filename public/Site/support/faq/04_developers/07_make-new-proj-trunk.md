@@ -1,4 +1,4 @@
-How do I make a new project under /trunk?
+# How do I make a new project under `/trunk`?
 
 Create the directory you'd like to add and then use the import command. When you import a new project and you want it to appear as /trunk/<<new_project>>, make sure to append the <<new_project>> directory name to the URL you pass to svn import. Here's an example of adding a new project named svn-tools:
 
