@@ -32,7 +32,7 @@ export class DataReaderService {
   }
 
   getAboutUsPage(): Observable<any> {
-    return this.http.get<any>(`${this.serverURL}/api/content/markdown/about-us`);
+    return this.http.get<any>(`${this.serverURL}/api/content/about-us`);
   }
 
   getReleaseData(): Observable<Versions> {

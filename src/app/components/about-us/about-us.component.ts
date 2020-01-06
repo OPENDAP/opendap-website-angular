@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DataReaderService } from 'src/app/data-reader.service';
 
 import * as showdown from 'showdown';
@@ -6,17 +6,19 @@ import * as showdown from 'showdown';
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.scss']
+  styleUrls: ['./about-us.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AboutUsComponent implements OnInit {
 
   constructor(private dataReaderService: DataReaderService) { }
 
-  html: string;
+  data: any;
 
   async ngOnInit() {
+
     this.dataReaderService.getAboutUsPage().subscribe(data => {
-      this.html = new showdown.Converter().makeHtml(data.markdown);
+      this.data = data;
     });
   }
 

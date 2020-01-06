@@ -1,3 +1,4 @@
-<div class="page-padding">
-    <div [innerHTML]=html></div>
+<div *ngIf="data" class="page-padding">
+    <div [innerHTML]=data.corporateOfficers></div>
+    <div [innerHTML]=data.engineeringTeam></div>
 </div>

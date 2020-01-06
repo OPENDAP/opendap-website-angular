@@ -38,13 +38,20 @@ app.route('/api/jira/HK/versions/:fixVersionID').get((req, res) => {
 });
 
 app.route('/api/content/markdown/:pageID').get((req, res) => {
-    fs.readFile(path.join(`public/Site/${req.params['pageID']}.md`), 'utf8', (err, data) => {
+    fs.readFile(`public/Site/${req.params['pageID']}.md`, 'utf8', (err, data) => {
         if (err) throw err;
 
         res.status(200).send({
             markdown: data
         })
     });
+});
+
+app.route('/api/content/about-us').get((req, res) => {
+    res.status(200).send({
+        corporateOfficers: converter.makeHtml(fs.readFileSync(`public/site/about-us/officers.md`, 'utf8')),
+        engineeringTeam: converter.makeHtml(fs.readFileSync(`public/site/about-us/engineering-team.md`, 'utf8'))
+    })
 });
 
 app.route('/api/content/support').get((req, res) => {
