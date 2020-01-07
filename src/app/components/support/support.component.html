@@ -1,16 +1,15 @@
 <mat-spinner *ngIf="!data"></mat-spinner>
 
-<div *ngIf="data" class="body">
+<app-navigation-dock *ngIf=ids [ids]=ids [scrollOffset]=175></app-navigation-dock>
 
-    <h1>Support</h1>
+<div *ngIf="data" class="support-body">
+
+    <h1 id="support">Support</h1>
 
     <div [innerHTML]="parseMarkdown(data.topText.md)"></div>
+    <p>See the support pages below, our check out our <a routerLink="/support/faq">FAQ</a>.</p>
 
-    <p>
-        See the support pages below, our check out our <a routerLink="/support/faq">FAQ</a>.
-    </p>
-
-    <h1>Documentation</h1>
+    <h1 id="documentation">Documentation</h1>
 
     <mat-tab-group dynamicHeight>
         <mat-tab label="{{data.documentation.userDocumentation.title}}">
@@ -27,7 +26,7 @@
         </mat-tab>
     </mat-tab-group>
 
-    <h1>Software</h1>
+    <h1 id="software">Software</h1>
 
     <mat-tab-group dynamicHeight>
         <mat-tab label="{{data.software.clientSoftware.title}}">
@@ -41,7 +40,7 @@
         </mat-tab>
     </mat-tab-group>
 
-    <h1>Mailing List</h1>
+    <h1 id="mailingList">Mailing List</h1>
 
     <mat-card [innerHTML]="parseMarkdown(data.contactInfo.md)"></mat-card>
     <!--     

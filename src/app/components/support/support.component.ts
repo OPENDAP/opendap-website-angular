@@ -12,12 +12,28 @@ import * as showdown from 'showdown';
 export class SupportComponent implements OnInit {
 
   data: any;
+  ids = [
+    {
+      'title': 'Support',
+      'id': 'support'
+    }, {
+      'title': 'Documentation',
+      'id': 'documentation'
+    }, {
+      'title': 'Software',
+      'id': 'software'
+    }, {
+      'title': 'Mailing List',
+      'id': 'mailingList'
+    }
+  ]
 
   constructor(private dataReaderService: DataReaderService) { }
 
   ngOnInit() {
     this.dataReaderService.getSupportData().subscribe(data => {
       this.data = data;
+      console.log(data);
     });
   }
 
