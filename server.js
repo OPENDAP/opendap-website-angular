@@ -4,60 +4,73 @@ const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
 const request = require('request');
-
 const showdown = require('showdown');
-const converter = new showdown.Converter();
 
 const app = express();
 const port = process.env.PORT || 3001;
 
+const converter = new showdown.Converter();
+
 app.use(cors());
 
+ //-------------------- JIRA --------------------//
+
+ /**
+  * Returns a Jira issue from OPeNDAP's Jira server.
+  */
 app.route('/api/jira/:issue').get((req, res) => {
     request(`https://opendap.atlassian.net/rest/api/2/issue/${req.params['issue']}`, { json: true }, (err, thisRes) => {
         if (err) throw err;
+
         res.status(200).send(thisRes);
     });
 });
 
+/**
+ * Returns the HK versions from OPeNDAP's Jira server.
+ */
 app.route('/api/jira/HK/versions').get((req, res) => {
     request('https://opendap.atlassian.net/rest/api/2/project/HK/versions', { json: true }, (err, thisRes) => {
         if (err) throw err;
+
         res.status(200).send(thisRes);
     });
 });
 
+/**
+ * Returns all of the issues in a specific fix version
+ * from OPeNDAP's Jira server.
+ */
 app.route('/api/jira/HK/versions/:fixVersionID').get((req, res) => {
     let search = `search?jql=project=HK AND fixversion=${req.params['fixVersionID']}`;
     let url = `https://opendap.atlassian.net/rest/api/2/${search}`;
 
     request(url, { json: true }, (err, thisRes) => {
         if (err) throw err;
+
         res.status(200).send(thisRes);
     });
 });
 
-app.route('/api/content/markdown/:pageID').get((req, res) => {
-    fs.readFile(`public/Site/${req.params['pageID']}.md`, 'utf8', (err, data) => {
-        if (err) throw err;
+ //-------------------- CONTENT --------------------//
 
-        res.status(200).send({
-            markdown: data
-        })
-    });
-});
-
+/**
+ * Returns and parses the markdown files in the about-us folder.
+ */
 app.route('/api/content/about-us').get((req, res) => {
     let files = fs.readdirSync('public/Site/about-us');
     let toReturn = [];
 
-    for(let thisFile of files) {
+    for (let thisFile of files) {
         toReturn.push(processMarkdownFile(fs.readFileSync(`public/site/about-us/${thisFile}`, 'utf8')));
     }
 
     res.status(200).send(toReturn)
 });
 
+/**
+ * Returns and parses the files in the support folder.
+ */
 app.route('/api/content/support').get((req, res) => {
     res.status(200).send({
         topText: processMarkdownFile(fs.readFileSync(`public/site/support/01_support.md`, 'utf8')),
@@ -76,11 +89,12 @@ app.route('/api/content/support').get((req, res) => {
     });
 });
 
+/**
+ * Returns and parses the files in the FAQ folder.
+ */
 app.route('/api/content/faq').get((req, res) => {
-
-    let toReturn = [];
-
     let files = fs.readdirSync('public/Site/support/faq');
+    let toReturn = [];
 
     for (const thisDir of files) {
         let thisFAQSection = [];
@@ -96,16 +110,26 @@ app.route('/api/content/faq').get((req, res) => {
     res.status(200).send(toReturn);
 });
 
+/**
+ * Processes a markdown file by splitting the title out of the document
+ * and converting the body to HTML with showdown.
+ * @param {string} md The markdown file to be processed.
+ */
 function processMarkdownFile(md) {
     let split = md.split("\n")[0];
     let title = split.substring(2, split.length - 1);
 
-    return({
+    return ({
         title: title,
         md: converter.makeHtml(md.substring(split.length + 3, md.length))
     });
 }
 
+ //-------------------- VERSIONS --------------------//
+
+ /**
+  * Returns all the versions of Hyrax that are currently on the server.
+  */
 app.route('/api/versions').get((req, res) => {
     fs.readdir('public/Hyrax', (err, files) => {
         if (err) throw err;
@@ -116,6 +140,9 @@ app.route('/api/versions').get((req, res) => {
     });
 });
 
+/**
+ * Returns the latest version of Hyrax that is currently on the server.
+ */
 app.route('/api/versions/latest').get((req, res) => {
     fs.readdir('public/Hyrax', (err, files) => {
         if (err) throw err;
@@ -123,14 +150,17 @@ app.route('/api/versions/latest').get((req, res) => {
     });
 });
 
+/**
+ * Returns a specific version of Hyrax from the server.
+ */
 app.route('/api/versions/:version').get((req, res) => {
     getSpecificVersion(req.params['version'], res);
 });
 
 /**
- * 
- * @param {string} requestedVersion The version that the user requests.
- * @param {Response<any>} res The response that _will_ be sent.
+ * Returns a specific version of Hyrax data from the server.
+ * @param {string} requestedVersion The version that the api will serve.
+ * @param {response} res The response that will serve the data.
  */
 function getSpecificVersion(requestedVersion, res) {
     fs.readdir(`public/Hyrax/${requestedVersion}`, (err, files) => {
@@ -163,8 +193,6 @@ function getSpecificVersion(requestedVersion, res) {
     });
 }
 
-const server = http.createServer(app);
+ //-------------------- SERVER --------------------//
 
-server.listen(port, () => {
-    console.log('Running.');
-})
+http.createServer(app).listen(port, () => console.log('Running.'));
