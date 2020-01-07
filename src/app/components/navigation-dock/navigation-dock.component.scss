@@ -16,6 +16,20 @@
         z-index: 15;
         overflow-x: auto;
     }
+
+    .mat-tab-nav-bar, .mat-tab-header {
+      border-bottom: none;
+    }
+
+    .mat-button {
+      border-radius: 0px;
+      border-bottom: solid 2px white;
+    }
+
+    .active {
+      border-radius: 0px;
+      border-bottom: solid 2px white;
+    }
     
     ul {
         list-style-type: none;

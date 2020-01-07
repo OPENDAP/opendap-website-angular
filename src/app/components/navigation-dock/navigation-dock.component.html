@@ -1,9 +1,18 @@
 <div class="dock">
     <mat-card *ngIf=ids class="mat-elevation-z1">
-        <ul>
+
+        <nav mat-tab-nav-bar [backgroundColor]="background">
+            <a mat-tab-link *ngFor="let link of ids" (click)="scrollIntoView(link, link.id)" [active]="activeLink == link">
+                {{link.title}}
+            </a>
+        </nav>
+
+
+
+        <!-- <ul>
             <li *ngFor="let thisID of ids">
                 <button mat-button (click)="scrollIntoView(thisID.id)">{{thisID.title}}</button>
             </li>
-        </ul>
+        </ul> -->
     </mat-card>
 </div>
