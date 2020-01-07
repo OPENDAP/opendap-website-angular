@@ -1,0 +1,9 @@
+<div class="dock">
+    <mat-card *ngIf=ids class="mat-elevation-z1">
+        <ul>
+            <li *ngFor="let thisID of ids">
+                <button mat-button (click)="scrollIntoView(thisID.id)">{{thisID.title}}</button>
+            </li>
+        </ul>
+    </mat-card>
+</div>

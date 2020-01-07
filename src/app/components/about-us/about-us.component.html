@@ -1,6 +1,10 @@
-<div *ngIf="data" class="page-padding">
-    <div *ngFor="let thisSection of data">
-        <h2>{{thisSection.title}}</h2>
-        <div [innerHTML]=thisSection.md></div>
+<div *ngIf="data" class="body">
+    <app-navigation-dock [ids]=ids [scrollOffset]=185></app-navigation-dock>
+
+    <div class="page-padding">
+        <div *ngFor="let thisSection of data">
+            <h1 id={{thisSection.id}}>{{thisSection.title}}</h1>
+            <div [innerHTML]=thisSection.md></div>
+        </div>
     </div>
 </div>

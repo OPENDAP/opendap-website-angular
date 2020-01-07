@@ -1,3 +1,22 @@
+.body {
+    margin-top: 90px;
+}
+
+mat-card {
+    z-index: -1;
+}
+
+h1 {
+    padding: 0;
+    margin-top: 1.5em;
+    border-bottom: solid 1px lightgray;
+    padding-bottom: .25em;
+}
+
+h3 {
+    border-bottom: none;
+}
+
 h4 {
     font-weight: 500;
     margin: 0;
@@ -10,4 +29,8 @@ h5 {
 
 img {
     max-width: 85px;
+}
+
+.no-margin {
+    margin-top: 0px;
 }

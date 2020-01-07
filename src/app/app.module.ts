@@ -39,6 +39,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { FaqSectionComponent } from './components/faq/faq-section/faq-section.component';
 import { FaqSearchComponent } from './components/faq/faq-search/faq-search.component';
 import { SupportComponent } from './components/support/support.component';
+import { NavigationDockComponent } from './components/navigation-dock/navigation-dock.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { SupportComponent } from './components/support/support.component';
     FaqSectionComponent,
     FaqSearchComponent,
     SupportComponent,
+    NavigationDockComponent,
   ],
   imports: [
     BrowserModule,

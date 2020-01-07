@@ -60,9 +60,10 @@ app.route('/api/jira/HK/versions/:fixVersionID').get((req, res) => {
 app.route('/api/content/about-us').get((req, res) => {
     let files = fs.readdirSync('public/Site/about-us');
     let toReturn = [];
+    let id = 0;
 
     for (let thisFile of files) {
-        toReturn.push(processMarkdownFile(fs.readFileSync(`public/site/about-us/${thisFile}`, 'utf8')));
+        toReturn.push(processMarkdownFile(fs.readFileSync(`public/site/about-us/${thisFile}`, 'utf8'), id++));
     }
 
     res.status(200).send(toReturn)
@@ -115,13 +116,14 @@ app.route('/api/content/faq').get((req, res) => {
  * and converting the body to HTML with showdown.
  * @param {string} md The markdown file to be processed.
  */
-function processMarkdownFile(md) {
+function processMarkdownFile(md, id = 0) {
     let split = md.split("\n")[0];
     let title = split.substring(2, split.length - 1);
 
     return ({
         title: title,
-        md: converter.makeHtml(md.substring(split.length + 3, md.length))
+        md: converter.makeHtml(md.substring(split.length + 3, md.length)),
+        id: title.replace(/ /g, "-").toLowerCase() 
     });
 }
 

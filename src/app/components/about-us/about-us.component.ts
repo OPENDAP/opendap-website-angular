@@ -14,12 +14,21 @@ export class AboutUsComponent implements OnInit {
   constructor(private dataReaderService: DataReaderService) { }
 
   data: any;
+  links: string[];
+  ids: any[];
 
   async ngOnInit() {
 
     this.dataReaderService.getAboutUsPage().subscribe(data => {
       this.data = data;
+      this.ids = [];
+
+      for(let thisData of data) {
+        this.ids.push({
+          id: thisData.id,
+          title: thisData.title
+        });
+      }
     });
   }
-
 }
