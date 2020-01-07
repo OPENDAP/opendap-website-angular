@@ -42,8 +42,5 @@
 
     <h1 id="mailingList">Mailing List</h1>
 
-    <mat-card [innerHTML]="parseMarkdown(data.contactInfo.md)"></mat-card>
-    <!--     
-    <mat-card class="mat-elevation-z5" *ngFor="let thisMarkdown of data" [innerHTML]="parseMarkdown(thisMarkdown)">
-    </mat-card> -->
+    <div [innerHTML]="parseMarkdown(data.contactInfo.md)"></div>
 </div>
