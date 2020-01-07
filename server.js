@@ -48,10 +48,14 @@ app.route('/api/content/markdown/:pageID').get((req, res) => {
 });
 
 app.route('/api/content/about-us').get((req, res) => {
-    res.status(200).send({
-        corporateOfficers: converter.makeHtml(fs.readFileSync(`public/site/about-us/officers.md`, 'utf8')),
-        engineeringTeam: converter.makeHtml(fs.readFileSync(`public/site/about-us/engineering-team.md`, 'utf8'))
-    })
+    let files = fs.readdirSync('public/Site/about-us');
+    let toReturn = [];
+
+    for(let thisFile of files) {
+        toReturn.push(processMarkdownFile(fs.readFileSync(`public/site/about-us/${thisFile}`, 'utf8')));
+    }
+
+    res.status(200).send(toReturn)
 });
 
 app.route('/api/content/support').get((req, res) => {

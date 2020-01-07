@@ -1,4 +1,6 @@
 <div *ngIf="data" class="page-padding">
-    <div [innerHTML]=data.corporateOfficers></div>
-    <div [innerHTML]=data.engineeringTeam></div>
+    <div *ngFor="let thisSection of data">
+        <h2>{{thisSection.title}}</h2>
+        <div [innerHTML]=thisSection.md></div>
+    </div>
 </div>

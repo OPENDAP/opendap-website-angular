@@ -1,4 +1,4 @@
-## Engineering Team
+# Engineering Team
 
 <table>
     <tr>
@@ -15,7 +15,7 @@
                 and is the engineering and architectural lead for the DAP-4 specification.
             </p>
         </td>
-    </tr>    
+    </tr>
     <tr>
         <td>
             <img src="../../../assets/images/holloway.jpg" />
