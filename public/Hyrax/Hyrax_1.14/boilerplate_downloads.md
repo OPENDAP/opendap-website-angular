@@ -1,7 +1,7 @@
-# Software downloads for Hyrax 1.16.0
+# Software downloads for Hyrax 1.14.0
 
 #SPLIT#
-## Binaries for Hyrax 1.16.0
+## Binaries for Hyrax 1.14.0
 
 * [Docker Images](https://github.com/OPENDAP/hyrax-docker/blob/master/README.md)
 * [Hyrax](https://hub.docker.com/r/opendap/hyrax)
@@ -48,21 +48,21 @@ The configuration instructions can be found
 #SPLIT#
 ## BES
 
-### [CentOS 6.x x86_64 RPMs](https://www.opendap.org/pub/binary/hyrax-1.16/centos-6.x/):
+### [CentOS 6.x x86_64 RPMs](https://www.opendap.org/pub/binary/hyrax-1.14/centos-6.x/):
 
-* [libdap-3.20.4-1](https://www.opendap.org/pub/binary/hyrax-1.16/centos-6.x/libdap-3.20.4-1.el6.x86_64.rpm)
-[(gpg signature)](https://www.opendap.org/pub/binary/hyrax-1.16/centos-6.x/libdap-3.20.4-1.el6.x86_64.rpm.sig)
+* [libdap-3.20.4-1](https://www.opendap.org/pub/binary/hyrax-1.14/centos-6.x/libdap-3.20.4-1.el6.x86_64.rpm)
+[(gpg signature)](https://www.opendap.org/pub/binary/hyrax-1.14/centos-6.x/libdap-3.20.4-1.el6.x86_64.rpm.sig)
 
-* [bes-3.20.5-1.static](https://www.opendap.org/pub/binary/hyrax-1.16/centos-6.x/bes-3.20.5-1.static.el6.x86_64.rpm)
-[(gpg signature)](https://www.opendap.org/pub/binary/hyrax-1.16/centos-6.x/bes-3.20.5-1.static.el6.x86_64.rpm.sig)
+* [bes-3.20.5-1.static](https://www.opendap.org/pub/binary/hyrax-1.14/centos-6.x/bes-3.20.5-1.static.el6.x86_64.rpm)
+[(gpg signature)](https://www.opendap.org/pub/binary/hyrax-1.14/centos-6.x/bes-3.20.5-1.static.el6.x86_64.rpm.sig)
 
-### [CentOS 7.x x86_64 RPMs](https://www.opendap.org/pub/binary/hyrax-1.16/centos-7.x/):
+### [CentOS 7.x x86_64 RPMs](https://www.opendap.org/pub/binary/hyrax-1.14/centos-7.x/):
 
-* [libdap-3.20.4-1](https://www.opendap.org/pub/binary/hyrax-1.16/centos-7.x/libdap-3.20.4-1.el7.x86_64.rpm)
-[(gpg signature)](https://www.opendap.org/pub/binary/hyrax-1.16/centos-7.x/libdap-3.20.4-1.el7.x86_64.rpm.sig)
+* [libdap-3.20.4-1](https://www.opendap.org/pub/binary/hyrax-1.14/centos-7.x/libdap-3.20.4-1.el7.x86_64.rpm)
+[(gpg signature)](https://www.opendap.org/pub/binary/hyrax-1.14/centos-7.x/libdap-3.20.4-1.el7.x86_64.rpm.sig)
 
-* [bes-3.20.5-1.static](https://www.opendap.org/pub/binary/hyrax-1.16/centos-7.x/bes-3.20.5-1.static.el7.x86_64.rpm)
-[(gpg signature)](https://www.opendap.org/pub/binary/hyrax-1.16/centos-7.x/bes-3.20.5-1.static.el7.x86_64.rpm.sig)
+* [bes-3.20.5-1.static](https://www.opendap.org/pub/binary/hyrax-1.14/centos-7.x/bes-3.20.5-1.static.el7.x86_64.rpm)
+[(gpg signature)](https://www.opendap.org/pub/binary/hyrax-1.14/centos-7.x/bes-3.20.5-1.static.el7.x86_64.rpm.sig)
  
 ### Notes:
 

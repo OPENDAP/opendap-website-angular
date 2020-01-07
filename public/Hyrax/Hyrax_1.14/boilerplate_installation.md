@@ -1,6 +1,6 @@
 ## Required External Dependencies
 
-In order to run Hyrax 1.16, you will need...
+In order to run Hyrax 1.14, you will need...
 
 * Java 1.7 or greater
 * Tomcat 7.x or 8.x Note: On CentOS 6.6 use Java 7 + Tomcat 7 if you're using yum to install software.

@@ -15,7 +15,7 @@
         },
         {
             "title": "Handler fixes - HDF Handlers",
-            "body": "For the new features and fixes see the section titled “What’s new for Hyrax 1.14.0” in the handlers README files: <ul><li>For the HDF5 handler: https://github.com/OPENDAP/hdf5_handler/blob/master/README</li><li>For the HDF4 handler: https://github.com/OPENDAP/hdf4_handler/blob/master/README<li></ul>"
+            "body": "For the new features and fixes see the section titled “What’s new for Hyrax 1.14.0” in the handlers README files:\n\r* For the HDF5 handler: https://github.com/OPENDAP/hdf5_handler/blob/master/README\n\r* For the HDF4 handler: https://github.com/OPENDAP/hdf4_handler/blob/master/README"
         }
     ],
     "bugFixes": [

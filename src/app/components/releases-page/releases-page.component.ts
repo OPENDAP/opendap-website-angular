@@ -27,21 +27,24 @@ export class ReleasesPageComponent implements OnInit {
     });
   }
 
+  getLatestVersion() {
+    this.allVersionData[this.allVersionData.length-1].fixVersion;
+  }
+
   loadPage(version: string) {
     this.allVersionData.length = 0;
     
     this.dataReaderService.getVersionPageData(version).subscribe(data => {
       for (const thisData of data.versions) {
-        console.log(thisData);
-
         for(const thisFeature of thisData.newFeatures) {
-          console.log(thisFeature);
           thisFeature.body = new showdown.Converter().makeHtml(thisFeature.body);
         }
 
         this.allVersionData.push(thisData);
       }
 
+      this.title = `Software Downloads for Hyrax ${this.allVersionData[this.allVersionData.length-1].fixVersion}`;
+      this.allVersionData = this.allVersionData.reverse();
       this.download = data.download;
       this.installation = data.installation;
     });

@@ -1,10 +1,9 @@
-<div class="page-padding">
+<div *ngIf="download && installation" class="page-padding">
+    <h1>{{ getLatestVersion() | titlecase }}</h1>
+    
+    <app-boilerplate [download]="download" [installation]="installation" [title]="title"></app-boilerplate>
+
     <div *ngFor="let data of allVersionData">
-        <h1>{{ data.fixVersion | titlecase }}</h1>
-
-        <app-boilerplate *ngIf="download && installation" [download]="download" [installation]="installation" [title]="title">
-        </app-boilerplate>
-
         <h2>New Features in {{ data.fixVersion | titlecase }}</h2>
 
         <div *ngFor="let newFeature of data['newFeatures']">
