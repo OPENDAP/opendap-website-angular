@@ -12,7 +12,7 @@ import { SupportComponent } from './components/support/support.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'releases/:version', component: ReleasesPageComponent },
-  { path: 'about-us', component: AboutUsComponent },
+  { path: 'about', component: AboutUsComponent },
   { path: 'hyrax', component: HyraxComponent },
   { path: 'support', component: SupportComponent },
   { path: 'support/faq', component: FaqComponent },
