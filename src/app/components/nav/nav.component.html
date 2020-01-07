@@ -6,24 +6,30 @@
     </a>
 
     <ul>
-        <li><a routerLink="/hyrax"><button mat-button>Hyrax</button></a></li>
-        
-        <button mat-button [matMenuTriggerFor]="menu">Releases</button>
-        <mat-menu #menu="matMenu">
-            <a *ngFor="let version of versions" routerLink="/releases/{{version}}">
-                <button mat-menu-item>{{version}}</button>
-            </a>
-        </mat-menu>
-
-        <button mat-button [matMenuTriggerFor]="supportMenu">Support</button>
-        <mat-menu #supportMenu="matMenu">
-            <a routerLink="/support">
-                <button mat-menu-item>Support Home</button>
-            </a>
-            <a routerLink="/support/faq">
-                <button mat-menu-item>FAQ</button>
-            </a>
-        </mat-menu>
-        <li><a routerLink="/about"><button mat-button>About Us</button></a></li>
+        <li>
+            <a routerLink="/hyrax"><button mat-button>Hyrax</button></a>
+        </li>
+        <li>
+            <button mat-button [matMenuTriggerFor]="menu">Releases</button>
+            <mat-menu #menu="matMenu">
+                <a *ngFor="let version of versions" routerLink="/releases/{{version}}">
+                    <button mat-menu-item>{{version}}</button>
+                </a>
+            </mat-menu>
+        </li>
+        <li>
+            <button mat-button [matMenuTriggerFor]="supportMenu">Support</button>
+            <mat-menu #supportMenu="matMenu">
+                <a routerLink="/support">
+                    <button mat-menu-item>Support Home</button>
+                </a>
+                <a routerLink="/support/faq">
+                    <button mat-menu-item>FAQ</button>
+                </a>
+            </mat-menu>
+        </li>
+        <li>
+            <a routerLink="/about"><button mat-button>About Us</button></a>
+        </li>
     </ul>
 </nav>
