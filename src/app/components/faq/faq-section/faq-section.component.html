@@ -1,10 +1,4 @@
-<mat-expansion-panel>
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            {{ sectionTitle }}
-        </mat-panel-title>
-    </mat-expansion-panel-header>
-
+<div class="faq-section-body">
     <mat-accordion>
         <mat-expansion-panel *ngFor="let thing of faqSection">
             <mat-expansion-panel-header>
@@ -16,4 +10,4 @@
             <div [innerHTML]="thing.md"></div>
         </mat-expansion-panel>
     </mat-accordion>
-</mat-expansion-panel>
+</div>
