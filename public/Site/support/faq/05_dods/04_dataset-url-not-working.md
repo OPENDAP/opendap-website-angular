@@ -27,3 +27,5 @@ When DODS 3.3 comes out, its server installation scripts will no longer support 
 One of the new features in DODS (C++) version 3.2 was to reorganize all the different servers to have a single point of access. Pre-3.2 servers had a separate CGI script (e.g., "nph-nc", "nph-ff", "nph-hdf") for each type of DODS server. If a single site served different types of data, users had to know which datasets corresponded with which server. A mismatch between server type and data type resulted in an error.
 
 Version 3.2 servers present a single entry point, the CGI script "nph-dods" automatically (with the help of a dods.ini file routes requests to the appropriate server software.
+
+##TAGS##

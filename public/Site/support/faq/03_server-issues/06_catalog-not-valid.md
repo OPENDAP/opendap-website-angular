@@ -1,4 +1,6 @@
-# When I start it I get a message that the catalog is not valid.
+# Error Message: Catalog is Not Valid
+
+The following was submitted by Tony Jolibois <tjolibois at cls.fr>.
 
 When I start my Aggregation Server, I get the following:
 
@@ -8,9 +10,9 @@ When I start my Aggregation Server, I get the following:
     DEBUG: AggServer: catalog config 
     </usr/local/jakarta-tomcat-4.1.27-LE-jdk14/content/thredds/dodsC/catalogConfig.xml> is not valid (04-04-19 10:57:09 )
 
-From: Tony Jolibois <tjolibois at cls.fr>
-
-The error didn't come from the catalog itself, but from the network configuration of my computer. In the configuration catalog of the AS server, there are some http URLs:
+The error didn't come from the catalog itself, but from the
+network configuration of my computer. In the configuration catalog
+of the AS server, there are some http URLs:
 
     <!DOCTYPE catalog SYSTEM "http://www.unidata.ucar.edu/projects/THREDDS/xml/AggServerCatalog.dtd"> 
     <catalog name="MERCATOR DODS Aggregation Server Catalog" version="0.6" 
@@ -23,4 +25,5 @@ After opening the connection to these two URLs at the firewall, all works fine n
 
 Conclusion: if your computer cannot connect to these sites, you won't be able to run an Aggregating server.
 
-Thanks Tony for tracking this down and providing this FAQ!
+##TAGS##
+aggregating,sever,as server,catalog not valid,invalid catalog,invalid,catalog,tomcat,network,unidata,w3
