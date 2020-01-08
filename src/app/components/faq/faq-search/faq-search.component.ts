@@ -15,13 +15,13 @@ export class FaqSearchComponent {
     if (this.value.length > 0) {
       this.results.clear();
 
-      let terms = this.removePunctuation(this.value).split(' ');
-
-      for (let thisTerm of terms) {
-        for (let thisFAQSection of this.data) {
-          for (let thisQuestion of thisFAQSection) {
-            if (thisQuestion.title.toLowerCase().includes(thisTerm)) {
-              this.results.add(thisQuestion);
+      for (let thisSection of this.data) {
+        for (let thisArticle of thisSection) {
+          out:
+          for (let tag of thisArticle.tags) {
+            if (this.value.toLowerCase().includes(tag)) {
+              this.results.add(thisArticle);
+              break out;
             }
           }
         }
