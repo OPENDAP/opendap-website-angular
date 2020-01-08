@@ -1,3 +1,17 @@
 .faq-section-body {
     margin: 5px;
 }
+
+pre {
+    white-space: pre-wrap;
+
+    code {
+        width: 95%;
+        padding: 1em;
+    }
+}
+
+code {
+    display: inline-block;
+    background: whitesmoke;
+}

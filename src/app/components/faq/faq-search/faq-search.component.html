@@ -1,6 +1,6 @@
 <div>
     <div>
-        <mat-form-field>
+        <mat-form-field (keydown)="keyDownFunction($event)">
             <input matInput type="text" placeholder="Describe your issue" [(ngModel)]="value" autocomplete="off" />
 
             <button matSuffix mat-icon-button (click)="search()">

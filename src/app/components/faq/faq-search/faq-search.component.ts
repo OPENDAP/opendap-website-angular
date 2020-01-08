@@ -11,6 +11,12 @@ export class FaqSearchComponent {
   value: string;
   results = new Set();
 
+  keyDownFunction(event: any) {
+    if (event.keyCode == 13) {
+      this.search();
+    }
+  }
+
   search() {
     if (this.value.length > 0) {
       this.results.clear();
@@ -27,9 +33,5 @@ export class FaqSearchComponent {
         }
       }
     }
-  }
-
-  removePunctuation(thisString: string): string {
-    return thisString.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s{2,}/g, " ");
   }
 }
