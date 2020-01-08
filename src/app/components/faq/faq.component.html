@@ -6,8 +6,10 @@
     <h1>Frequently Asked Questions</h1>
     <mat-accordion>
         <app-faq-section *ngIf="general" [sectionTitle]="'General'" [faqSection]="general"></app-faq-section>
-        <app-faq-section *ngIf="clientIssues" [sectionTitle]="'Client Issues'"[faqSection]="clientIssues"></app-faq-section>
         <app-faq-section *ngIf="serverIssues" [sectionTitle]="'Server Issues'" [faqSection]="serverIssues"></app-faq-section>
         <app-faq-section *ngIf="developers" [sectionTitle]="'Developers'" [faqSection]="developers"></app-faq-section>
+        <app-faq-section *ngIf="dods" [sectionTitle]="'DODS'" [faqSection]="dods"></app-faq-section>
+        <app-faq-section *ngIf="matlab" [sectionTitle]="'Matlab'" [faqSection]="matlab"></app-faq-section>
+        <app-faq-section *ngIf="netCDF" [sectionTitle]="'netCDF'" [faqSection]="netCDF"></app-faq-section>
     </mat-accordion>
 </div>

@@ -119,11 +119,21 @@ app.route('/api/content/faq').get((req, res) => {
 function processMarkdownFile(md, id = 0) {
     let split = md.split("\n")[0];
     let title = split.substring(2, split.length - 1);
+    let mds = md.substring(split.length + 3, md.length);
+    let tags = md.split("##TAGS##");
+
+    if(tags.length == 2) {
+        mds = tags[0].substring(split.length + 3, md.length);;
+        tags = tags[1].substr(2, tags[1].length).split(",");
+    } else {
+        tags = [];
+    }
 
     return ({
         title: title,
-        md: converter.makeHtml(md.substring(split.length + 3, md.length)),
-        id: title.replace(/ /g, "-").toLowerCase() 
+        md: converter.makeHtml(mds),
+        id: title.replace(/ /g, "-").toLowerCase(),
+        tags: tags
     });
 }
 

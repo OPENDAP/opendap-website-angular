@@ -13,9 +13,11 @@ export class FaqComponent implements OnInit {
   data: [];
 
   general: [];
-  clientIssues: [];
   serverIssues: [];
   developers: [];
+  dods: [];
+  matlab: [];
+  netCDF: [];
 
   constructor(private dataReaderService: DataReaderService) { }
 
@@ -24,9 +26,11 @@ export class FaqComponent implements OnInit {
       this.data = data;
       
       this.general = data[0];
-      this.clientIssues = data[1];
       this.serverIssues = data[2];
       this.developers = data[3];
+      this.dods = data[4];
+      this.matlab = data[5];
+      this.netCDF = data[6];
     });
   }
 
