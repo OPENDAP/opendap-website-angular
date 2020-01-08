@@ -1,5 +1,9 @@
-# How do I checkout code from subversion?
+# SVN - Checking Out Code
 
-Using the svn client, you'd use the checkout or co sub command like this to checkout the libdap 'project' code:
+Using the svn client, use the `checkout` or `co sub` command to checkout
+the libdap 'project' code:
 
     svn co https://scm.opendap.org:/svn/trunk/libdap
+
+##TAGS##
+svn,check,out,sub,svn co

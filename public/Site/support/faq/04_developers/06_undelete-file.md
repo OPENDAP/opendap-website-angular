@@ -1,6 +1,10 @@
-# How do I undelete a file?
+# SVN - Undelete Files
 
-If you delete a file using svn rm, then use the copy command to ressurect it. Note that after using svn rm you need to use svn ci to commit that change. Until then, the file is in limbo and things like svn up and svn copy... have no affect. So first, complete the deletion and then use copy as follows:
+If you delete a file using `svn rm`, then use the copy command to restore it.
+
+Note that after using `svn rm`, you need to use `svn ci` to commit that change.
+Until then, the file is in limbo and things like `svn up` and `svn copy...`
+have no affect. So first, complete the deletion and then use copy as follows:
 
     [jimg@zoey libdap]$ svn rm NEWS
     D         NEWS
@@ -15,3 +19,6 @@ If you delete a file using svn rm, then use the copy command to ressurect it. No
     Adding         NEWS
  
     Committed revision 11934.
+
+##TAGS##
+svn,undelete,restore,rm,up,ci

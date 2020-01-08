@@ -1,3 +1,6 @@
-# How do I get help for the svn command line client?
+# SVN Command Line Client Help
 
-Use svn help or svn help `<<sub command>>`.
+Use `svn help` or `svn help <<sub command>>`.
+
+##TAGS##
+svn,help
