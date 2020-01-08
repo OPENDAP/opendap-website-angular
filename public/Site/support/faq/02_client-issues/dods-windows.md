@@ -2,7 +2,10 @@
 
 Yes, we have ported several of the DODS clients to Windows and they are available as a beta release.
 
-Note: Windows versions of the OPeNDAP software is available here and on the main download page. This page provides some background information on the port, especially on the different types of libraries supported. You can get the same software, or in some cases newer software, from the main download page.
+Note: Windows versions of the OPeNDAP software is available on the main download page.
+This page provides some background information on the port,
+especially on the different types of libraries supported.
+You can get the same software, or in some cases newer software, from the main releases page.
 
 ## DODS 3.4.4 Native Win32 port
 
@@ -155,3 +158,6 @@ Tip: From a DODS support email, a discussion of setting your PATH so Matlab can 
 > in Win2000.
 
 Note: An older port using Cygwin to emulate the Unix environment contained a number of DODS servers. The Cygwin port is no longer supported but is available if desired. If you are interested in the Cygwin port, please email us at support@unidata.ucar.edu.
+
+##TAGS##
+dods,windows

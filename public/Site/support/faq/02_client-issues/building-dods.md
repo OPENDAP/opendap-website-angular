@@ -127,3 +127,6 @@ Sun Some system libraries can't be linked statically.
 
 * Run with '-Xlinker -Bstatic' instead of '-static' and '-Xlinker -Bdynamic -ldl' at the end g++ -v -g -Xlinker -Bstatic -L/upc/dods/build/DODS/packages-2.17/lib -L. -L../../lib -o geturl geturl.o TestByte.o TestInt32.o TestFloat64.o TestStr.o TestUrl.o TestArray.o TestStructure.o TestList.o TestSequence.o TestFunction.o TestGrid.o TestUInt32.o -ldap++ -lwww -lsocket -lnsl -lz -lrx -ltcl7.6 -Xlinker -Bdynamic -ldl
 * SGI Doesn't seem to like static linking. Could it be similar to Sun? g++ hdf_dods.o funcs.o -o hdf_dods -g -L/upc/dods/hdf4.1r2/mips-sgi-irix6.2/lib -L/upc/dods/cvsRel3.0.2/mips-sgi-irix6.5/DODS/packages-2.17/lib -L. -L../../lib -Lhdfclass -lhdf-dods -ldap++ -lhdfclass -lwww -lmfhdf -ldf -ljpeg -lz -lz -lrx -lexpect5.21 -ltcl7.6
+
+##TAGS##
+build,dods,matlab,gui
