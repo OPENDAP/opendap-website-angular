@@ -13,3 +13,6 @@
 6. I had to run ranlib on lib/libwww.a. There was a file called "__.SYMDEF SORTED" which looks like it was supposed to be the symbol table for libwww sitting in the lib/ directory, so perhaps the ranlib command line didn't work quite right the first time. At this point libdap++.a and libnc-dods.a both built successfully.
 
 7. The linker reported unresolved symbols for add_connect(NCConnect), del_connect(NCConnect), and a few other members of the Connections template. According to some messages on the web, there are template instantiation bugs in Apple's gcc, and the best fix they had found was to include the instantiation as a separate object file. So I added "../inst.o" to the link line for dncdump and lo and behold, it worked.
+
+##TAGS##
+build,netcdf,mac,os/x,osx,client,library

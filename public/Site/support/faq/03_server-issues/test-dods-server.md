@@ -63,3 +63,6 @@ A few things to think about if your server isn't working:
 
 * Check the permissions on your CGI scripts. They must have execute permission.
 * If you are using a FreeForm server, see the question Why can' I get my FF server to serve my data?
+
+##TAGS##
+dods,server,test,$DODS_ROOT

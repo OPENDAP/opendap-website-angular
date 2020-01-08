@@ -29,3 +29,4 @@ One of the new features in DODS (C++) version 3.2 was to reorganize all the diff
 Version 3.2 servers present a single entry point, the CGI script "nph-dods" automatically (with the help of a dods.ini file routes requests to the appropriate server software.
 
 ##TAGS##
+dataset,url,dods,installServers
