@@ -1,0 +1,10 @@
+<div *ngIf="data" class="single-section-body">
+    <a routerLink="/support/faq">
+        <button mat-button>
+            <mat-icon>chevron_left</mat-icon> Back to FAQ
+        </button>
+    </a>
+
+    <h1>{{data.title}}</h1>
+    <div [innerHTML]="data.md"></div>
+</div>

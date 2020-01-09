@@ -40,6 +40,8 @@ import { FaqSectionComponent } from './components/faq/faq-section/faq-section.co
 import { FaqSearchComponent } from './components/faq/faq-search/faq-search.component';
 import { SupportComponent } from './components/support/support.component';
 import { NavigationDockComponent } from './components/navigation-dock/navigation-dock.component';
+import { FaqSingleSectionComponent } from './components/faq/faq-single-section/faq-single-section.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { NavigationDockComponent } from './components/navigation-dock/navigation
     FaqSearchComponent,
     SupportComponent,
     NavigationDockComponent,
+    FaqSingleSectionComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

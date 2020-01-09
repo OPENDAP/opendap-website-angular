@@ -43,6 +43,10 @@ export class DataReaderService {
     return this.http.get<any>(`${this.serverURL}/api/content/faq`);
   }
 
+  getFAQPage(pageTitle: string): Observable<any> {
+    return this.http.get<any>(`${this.serverURL}/api/content/faq/${pageTitle}`)
+  }
+
   getSupportData(): Observable<any> {
     return this.http.get<any>(`${this.serverURL}/api/content/support`);
   }

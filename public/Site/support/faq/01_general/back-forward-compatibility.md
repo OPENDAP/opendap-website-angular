@@ -6,8 +6,9 @@ While old servers will continue to work without issue,
 clients built with core 2.22 or before) will not be able to process the new data types.
 They will, however, work if none of the new data types are returned.
 
-This problem can be solved by upgrading to the latest version of the client you are using.
-See *Find the Version of the Server You're Communicating With* above for more information.
+This problem can be solved by upgrading to the latest version of the client you are using. See
+[Find the Version of the Server You're Communicating With](/support/faq/find-server-version)
+for more information.
 
 ### Example
 

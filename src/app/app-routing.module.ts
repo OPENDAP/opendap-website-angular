@@ -8,6 +8,8 @@ import { BoilerplateEditorComponent } from './components/boilerplate-maker/boile
 import { HomeComponent } from './components/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { SupportComponent } from './components/support/support.component';
+import { FaqSingleSectionComponent } from './components/faq/faq-single-section/faq-single-section.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,8 +18,11 @@ const routes: Routes = [
   { path: 'hyrax', component: HyraxComponent },
   { path: 'support', component: SupportComponent },
   { path: 'support/faq', component: FaqComponent },
+  { path: 'support/faq/:article', component: FaqSingleSectionComponent },
   { path: 'devtools/boilerplate', component: BoilerplateMakerComponent },
   { path: 'devtools/boilerplate/:fixVersion', component: BoilerplateEditorComponent },
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({

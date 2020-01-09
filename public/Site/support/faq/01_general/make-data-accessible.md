@@ -1,11 +1,11 @@
 # Data Accessibility
 
 Available OPeNDAP servers are listed on our
-["Available OPeNDAP Servers"](https://www.opendap.org/support/OPeNDAP-servers)
+["Available OPeNDAP Servers"](/software)
 web page.
 
 If your data is in a format for which an OPeNDAP server has already been written, simply
-[download the appropriate server](https://www.opendap.org/software)
+[download the appropriate server](/software)
 and install it on your machine. (See the User's Guide for details on how to install a server.)
 
 If your data is not in a format with an existing server, you have two options.

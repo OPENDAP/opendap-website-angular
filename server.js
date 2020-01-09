@@ -111,6 +111,24 @@ app.route('/api/content/faq').get((req, res) => {
     res.status(200).send(toReturn);
 });
 
+app.route('/api/content/faq/:articleTitle').get((req, res) => {
+    let fileName = `${req.params['articleTitle']}.md`;
+
+    let files = fs.readdirSync('public/Site/support/faq');
+
+    for (const thisDir of files) {
+        
+        let faqSection = fs.readdirSync(`public/Site/support/faq/${thisDir}`);
+
+        if(faqSection.includes(fileName)) {
+            let file = fs.readFileSync(`public/Site/support/faq/${thisDir}/${fileName}`, 'utf8');
+            res.status(200).send(processMarkdownFile(file));
+        }
+    }
+
+    res.status(404).send("Not found");
+});
+
 /**
  * Processes a markdown file by splitting the title out of the document
  * and converting the body to HTML with showdown.
