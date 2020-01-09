@@ -38,6 +38,7 @@ export class NavigationDockComponent implements OnInit {
 
   scrollIntoView(link: any, id: string) {
     this.activeSection = link;
+
     window.scrollTo({
       top: document.getElementById(id).offsetTop - this.scrollOffset,
       behavior: "smooth"

@@ -52,7 +52,18 @@ app.route('/api/jira/HK/versions/:fixVersionID').get((req, res) => {
     });
 });
 
- //-------------------- CONTENT --------------------//
+//-------------------- CONTENT --------------------//
+
+app.route('/api/content/software').get((req, res) => {
+    let files = fs.readdirSync('public/Site/software');
+    let toReturn = [];
+
+    for (let thisFile of files) {
+        toReturn.push(processMarkdownFile(fs.readFileSync(`public/site/software/${thisFile}`, 'utf8')));
+    }
+
+    res.status(200).send(toReturn)
+});
 
 /**
  * Returns and parses the markdown files in the about-us folder.
@@ -223,6 +234,14 @@ function getSpecificVersion(requestedVersion, res) {
     });
 }
 
- //-------------------- SERVER --------------------//
+//-------------------- SECURITY --------------------//
+
+app.route('/api/security/publicKey').get((req, res) => {
+    let keyFile = fs.readFileSync('public/Security/security_at_opendap.org.pub.asc', 'utf8');
+    res.status(200).send(keyFile);
+});
+
+
+//-------------------- SERVER --------------------//
 
 http.createServer(app).listen(port, () => console.log('Running.'));

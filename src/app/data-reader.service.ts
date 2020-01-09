@@ -35,6 +35,10 @@ export class DataReaderService {
     return this.http.get<any>(`${this.serverURL}/api/content/about-us`);
   }
 
+  getSoftwarePage(): Observable<any> {
+    return this.http.get<any>(`${this.serverURL}/api/content/software`);
+  }
+
   getReleaseData(): Observable<Versions> {
     return this.http.get<Versions>(`${this.serverURL}/api/versions`);
   }

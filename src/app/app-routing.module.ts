@@ -10,6 +10,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { SupportComponent } from './components/support/support.component';
 import { FaqSingleSectionComponent } from './components/faq/faq-single-section/faq-single-section.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SoftwareComponent } from './components/software/software.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'support', component: SupportComponent },
   { path: 'support/faq', component: FaqComponent },
   { path: 'support/faq/:article', component: FaqSingleSectionComponent },
+  { path: 'software', component: SoftwareComponent },
   { path: 'devtools/boilerplate', component: BoilerplateMakerComponent },
   { path: 'devtools/boilerplate/:fixVersion', component: BoilerplateEditorComponent },
   { path: '404', component: NotFoundComponent },

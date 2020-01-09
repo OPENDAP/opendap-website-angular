@@ -1,29 +1,27 @@
 .dock {
-    position: fixed;
-    width: 100%;
-    
-    top: 0;
-    padding-top: 4em;
-    
-    background: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding-top: 4em;
+  padding-bottom: 2.5em;
+  background: linear-gradient(white, white 83%, rgba(255, 0, 0, 0));
+  z-index: 2;
 
-    z-index: 2;
+  mat-card {
+    max-width: 775px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 15;
+    overflow-x: auto;
+    padding: 13px;
+  }
 
-    mat-card {
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-        z-index: 15;
-        overflow-x: auto;
-        padding: .75em;
-    }
+  .mat-tab-nav-bar, .mat-tab-header {
+    border-bottom: none;
+  }
 
-    .mat-tab-nav-bar, .mat-tab-header {
-      border-bottom: none;
-    }
-
-    .mat-tab-link {
-      min-width: 50px;
-      padding: 0 14px;
-    }
+  .mat-tab-link {
+    min-width: 50px;
+    padding: 0 14px;
+  }
 }

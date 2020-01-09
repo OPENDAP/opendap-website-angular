@@ -42,6 +42,7 @@ import { SupportComponent } from './components/support/support.component';
 import { NavigationDockComponent } from './components/navigation-dock/navigation-dock.component';
 import { FaqSingleSectionComponent } from './components/faq/faq-single-section/faq-single-section.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SoftwareComponent } from './components/software/software.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     NavigationDockComponent,
     FaqSingleSectionComponent,
     NotFoundComponent,
+    SoftwareComponent,
   ],
   imports: [
     BrowserModule,

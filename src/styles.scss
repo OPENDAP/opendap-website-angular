@@ -32,27 +32,35 @@ body { margin: 0; font-family: Roboto, "Arial", sans-serif; }
 $accent-color: tomato;
 $standard-border: 1px solid $accent-color;
 
+p {
+    margin: 16px 0;
+    padding: 0;
+    font: 400 16px/24px Roboto,sans-serif;
+}
 
 h1 {
-    margin-top: 50px;
+    font-size: 27px;
     font-weight: 300;
-    font-size: 30px;
+    margin: 0.67em 0;
 }
 
 h2 {
-    margin-top: 35px;
+    font-size: 24px;
     font-weight: 300;
-    font-size: 25px;
+    margin: 48px 0 24px;
 }
 
 h3 {
+    font-size: 22px;
     font-weight: 300;
-    font-size: 20px;
-    line-height: 32px;
-    margin: 30px 0 20px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid rgba(0,0,0,.12);
+    margin: 32px 0 16px;
 }
+
+ol, ul {
+    margin: 0;
+    padding-left: 40px;
+}
+
 
 strong {
     font-weight: 500;

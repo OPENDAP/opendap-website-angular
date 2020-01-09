@@ -1,5 +1,5 @@
 <div class="dock">
-    <mat-card *ngIf=ids class="mat-elevation-z1">
+    <mat-card *ngIf=ids class="mat-elevation-z3">
         <nav mat-tab-nav-bar [backgroundColor]="background">
             <a mat-tab-link *ngFor="let link of ids" (click)="scrollIntoView(link, link.id)" [active]="activeSection == link">
                 {{link.title}}
