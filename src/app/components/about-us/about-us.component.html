@@ -1,10 +1,1 @@
-<app-navigation-dock *ngIf="data" [ids]=data [scrollOffset]=175></app-navigation-dock>
-
-<div *ngIf="data" class="about-us">
-    <div class="page-padding">
-        <div *ngFor="let thisSection of data">
-            <h1 id={{thisSection.id}}>{{thisSection.title}}</h1>
-            <div [innerHTML]=thisSection.md></div>
-        </div>
-    </div>
-</div>
+<mat-markdown [pageID]="'about-us'"></mat-markdown>

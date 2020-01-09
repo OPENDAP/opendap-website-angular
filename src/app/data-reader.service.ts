@@ -31,6 +31,10 @@ export class DataReaderService {
     }
   }
 
+  getPage(pageID: string): Observable<any> {
+    return this.http.get<any>(`${this.serverURL}/api/content/${pageID}`);
+  }
+
   getAboutUsPage(): Observable<any> {
     return this.http.get<any>(`${this.serverURL}/api/content/about-us`);
   }

@@ -43,6 +43,7 @@ import { NavigationDockComponent } from './components/navigation-dock/navigation
 import { FaqSingleSectionComponent } from './components/faq/faq-single-section/faq-single-section.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SoftwareComponent } from './components/software/software.component';
+import { MarkdownComponent } from './components/markdown/markdown.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { SoftwareComponent } from './components/software/software.component';
     FaqSingleSectionComponent,
     NotFoundComponent,
     SoftwareComponent,
+    MarkdownComponent,
   ],
   imports: [
     BrowserModule,
