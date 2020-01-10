@@ -10,7 +10,7 @@ import { DataReaderService } from 'src/app/data-reader.service';
   ]
 })
 export class MatMarkdownModule implements OnInit {
-  @Input() topicID: string;
+  @Input() pageID: string;
 
   data: any;
   headings: any[];
@@ -18,12 +18,12 @@ export class MatMarkdownModule implements OnInit {
   constructor(private dataReaderService: DataReaderService) { }
 
   ngOnInit() {
-    this.dataReaderService.getPage('supportNew').subscribe(data => {
+    this.dataReaderService.getPage(this.pageID).subscribe(data => {
       this.data = data;
 
       this.headings = [];
 
-      for (let thisData of this.data) {
+      for (let thisData of this.data.sections) {
         this.headings.push({
           title: thisData.title,
           id: thisData.id

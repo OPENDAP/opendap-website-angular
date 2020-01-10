@@ -38,7 +38,7 @@ import { FooterComponent } from './components/navigation/footer/footer.component
 import { FaqComponent } from './components/faq/faq.component';
 import { FaqSectionComponent } from './components/faq/faq-section/faq-section.component';
 import { FaqSearchComponent } from './components/faq/faq-search/faq-search.component';
-import { SupportComponent } from './components/support/support.component';
+import { SupportComponent } from './components/content-heavy/support/support.component';
 import { NavigationDockComponent } from './components/navigation/navigation-dock/navigation-dock.component';
 import { FaqSingleSectionComponent } from './components/faq/faq-single-section/faq-single-section.component';
 import { NotFoundComponent } from './components/navigation/not-found/not-found.component';

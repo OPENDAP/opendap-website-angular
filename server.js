@@ -54,34 +54,20 @@ app.route('/api/jira/HK/versions/:fixVersionID').get((req, res) => {
 
 //-------------------- CONTENT --------------------//
 
-app.route('/api/content/software').get((req, res) => {
-    let files = fs.readdirSync('public/Site/software');
-    let toReturn = [];
-
-    for (let thisFile of files) {
-        toReturn.push(processMarkdownFile(fs.readFileSync(`public/site/software/${thisFile}`, 'utf8')));
-    }
-
-    res.status(200).send(toReturn)
-});
-
-/**
- * Returns and parses the markdown files in the about-us folder.
- */
 app.route('/api/content/about-us').get((req, res) => {
-    let files = fs.readdirSync('public/Site/about-us');
-    let toReturn = [];
-    let id = 0;
-
-    for (let thisFile of files) {
-        toReturn.push(processMarkdownFile(fs.readFileSync(`public/site/about-us/${thisFile}`, 'utf8'), id++));
-    }
-
-    res.status(200).send(toReturn)
+    res.status(200).send(parseConfigFile('about-us'));
 });
 
-app.route('/api/content/supportNew').get((req, res) => {
-    let fileData = JSON.parse(fs.readFileSync(`public/site/support/support.config.json`, 'utf8'));
+app.route('/api/content/software').get((req, res) => {
+    res.status(200).send(parseConfigFile('software'));
+});
+
+app.route('/api/content/support').get((req, res) => {
+    res.status(200).send(parseConfigFile('support'));
+});
+
+function parseConfigFile(pageID) {
+    let fileData = JSON.parse(fs.readFileSync(`public/site/${pageID}/${pageID}.config.json`, 'utf8'));
 
     for(let thisSection of fileData.sections) {
         if(thisSection.sectionType === "standard") {
@@ -91,9 +77,8 @@ app.route('/api/content/supportNew').get((req, res) => {
         }
     }
 
-
-    res.status(200).send(fileData.sections);
-});
+    return fileData;
+}
 
 function parseStandardSection(root, section) {
     section.parsedFile = processMarkdownFile(fs.readFileSync(path.join(root, section.filename), 'utf8'));
@@ -105,26 +90,9 @@ function parseTabbedSection(root, section) {
     }
 }
 
-/**
- * Returns and parses the files in the support folder.
- */
-app.route('/api/content/support').get((req, res) => {
-    res.status(200).send({
-        topText: processMarkdownFile(fs.readFileSync(`public/site/support/01_support.md`, 'utf8')),
-        documentation: {
-            userDocumentation: processMarkdownFile(fs.readFileSync(`public/site/support/02_user-docs.md`, 'utf8')),
-            designDocumentation: processMarkdownFile(fs.readFileSync(`public/site/support/03_design-docs.md`, 'utf8')),
-            papersAndReports: processMarkdownFile(fs.readFileSync(`public/site/support/04_papers-and-reports.md`, 'utf8'))
-        },
-        software: {
-            clientSoftware: processMarkdownFile(fs.readFileSync(`public/site/support/05_available-client-software.md`, 'utf8')),
-            serverSoftware: processMarkdownFile(fs.readFileSync(`public/site/support/06_available-server-software.md`, 'utf8')),
-            dataHandlers: processMarkdownFile(fs.readFileSync(`public/site/support/07_data-handlers.md`, 'utf8')),
-            wishList: processMarkdownFile(fs.readFileSync(`public/site/support/09_software-wish-list.md`, 'utf8'))
-        },
-        contactInfo: processMarkdownFile(fs.readFileSync(`public/site/support/08_mailing-list.md`, 'utf8'))
-    });
-});
+
+
+
 
 /**
  * Returns and parses the files in the FAQ folder.

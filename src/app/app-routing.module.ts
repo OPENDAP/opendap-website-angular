@@ -7,7 +7,7 @@ import { BoilerplateMakerComponent } from './components/boilerplate-maker/boiler
 import { BoilerplateEditorComponent } from './components/boilerplate-maker/boilerplate-editor/boilerplate-editor.component';
 import { HomeComponent } from './components/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
-import { SupportComponent } from './components/support/support.component';
+import { SupportComponent } from './components/content-heavy/support/support.component';
 import { FaqSingleSectionComponent } from './components/faq/faq-single-section/faq-single-section.component';
 import { NotFoundComponent } from './components/navigation/not-found/not-found.component';
 import { SoftwareComponent } from './components/content-heavy/software/software.component';

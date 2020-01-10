@@ -1,7 +1,7 @@
 <app-navigation-dock *ngIf="headings" [ids]="headings" [scrollOffset]=170></app-navigation-dock>
 
 <div *ngIf="data" class="markdown-body markdown">
-    <div *ngFor="let thisSection of data">
+    <div *ngFor="let thisSection of data.sections">
         <h1 id="{{thisSection.id}}">
             {{thisSection.title}}
         </h1>

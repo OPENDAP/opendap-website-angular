@@ -1,0 +1,40 @@
+{
+    "root": "public/Site/software/",
+    "sections": [
+        {
+            "sectionType": "standard",
+            "title": "OPeNDAP Software",
+            "id": "opendap-software",
+            "filename": "01_introduction.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "standard",
+            "title": "Public Key",
+            "id": "public-key",
+            "filename": "02_public-key.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "standard",
+            "title": "Software Archive",
+            "id": "software-archive",
+            "filename": "03_archive.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "standard",
+            "title": "Continuous Integration Builds",
+            "id": "continuous-integration-builds.md",
+            "filename": "04_continuous-integration-builds.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "standard",
+            "title": "Version Control",
+            "id": "version-control",
+            "filename": "05_version-control.md",
+            "parsedFile": ""
+        }
+    ]
+}

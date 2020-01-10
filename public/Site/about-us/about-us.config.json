@@ -1,0 +1,54 @@
+{
+    "root": "public/Site/about-us/",
+    "sections": [
+        {
+            "sectionType": "standard",
+            "title": "About OPeNDAP",
+            "id": "about-opendap",
+            "filename": "01_about-us.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "standard",
+            "title": "Corporate Officers",
+            "id": "corporate-officers",
+            "filename": "02_officers.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "standard",
+            "title": "Engineering Team",
+            "id": "engineering-team",
+            "filename": "03_engineering-team.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "standard",
+            "title": "Workshops and Presentations",
+            "id": "workshops-and-presentations",
+            "filename": "04_workshops-and-presentations.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "standard",
+            "title": "Office Locations",
+            "id": "office-locations",
+            "filename": "05_locations.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "standard",
+            "title": "Supporters",
+            "id": "supporters",
+            "filename": "06_supporters.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "standard",
+            "title": "Get Involved",
+            "id": "get-involved",
+            "filename": "07_get-involved.md",
+            "parsedFile": ""
+        }
+    ]
+}
