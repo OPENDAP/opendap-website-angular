@@ -4,7 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development Server
 
-1. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. If you haven't already, download and install [Node](https://nodejs.org/en/download/).
+
+1. Navigate to the project's root directory, and run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 2. To run the backend server, run  `node server.js` in the root directory of the project.
 
