@@ -1,0 +1,69 @@
+{
+    "root": "public/Site/support/",
+    "sections": [
+        {
+            "sectionType": "standard",
+            "title": "Support",
+            "id": "support",
+            "filename": "01_support.md",
+            "parsedFile": ""
+        },
+        {
+            "sectionType": "tabbed",
+            "title": "Documentation",
+            "id": "documentation",
+            "tabs": [
+                {
+                    "sectionType": "standard",
+                    "title": "User Documentation",
+                    "filename": "02_user-docs.md",
+                    "parsedFile": ""
+                },
+                {
+                    "sectionType": "standard",
+                    "title": "Design Documentation",
+                    "filename": "03_design-docs.md",
+                    "parsedFile": ""
+                },
+                {
+                    "sectionType": "standard",
+                    "title": "Papers and Reports",
+                    "filename": "04_papers-and-reports.md",
+                    "parsedFile": ""
+                }
+            ]
+        },
+        {
+            "sectionType": "tabbed",
+            "title": "Software",
+            "id": "software",
+            "tabs": [
+                {
+                    "sectionType": "standard",
+                    "title": "Available OPeNDAP Client Software",
+                    "filename": "05_available-client-software.md",
+                    "parsedFile": ""
+                },
+                {
+                    "sectionType": "standard",
+                    "title": "Available DAP Servers",
+                    "filename": "06_available-server-software.md",
+                    "parsedFile": ""
+                },
+                {
+                    "sectionType": "standard",
+                    "title": "Data Handlers",
+                    "filename": "07_data-handlers.md",
+                    "parsedFile": ""
+                }
+            ]
+        },
+        {
+            "sectionType": "standard",
+            "title": "Mailing List",
+            "id": "mailing-list",
+            "filename": "08_mailing-list.md",
+            "parsedFile": ""
+        }
+    ]
+}

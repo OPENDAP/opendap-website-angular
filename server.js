@@ -80,6 +80,31 @@ app.route('/api/content/about-us').get((req, res) => {
     res.status(200).send(toReturn)
 });
 
+app.route('/api/content/supportNew').get((req, res) => {
+    let fileData = JSON.parse(fs.readFileSync(`public/site/support/support.config.json`, 'utf8'));
+
+    for(let thisSection of fileData.sections) {
+        if(thisSection.sectionType === "standard") {
+            parseStandardSection(fileData.root, thisSection);
+        } else if(thisSection.sectionType === "tabbed") {
+            parseTabbedSection(fileData.root, thisSection);
+        }
+    }
+
+
+    res.status(200).send(fileData.sections);
+});
+
+function parseStandardSection(root, section) {
+    section.parsedFile = processMarkdownFile(fs.readFileSync(path.join(root, section.filename), 'utf8'));
+}
+
+function parseTabbedSection(root, section) {
+    for(let thisTab of section.tabs) {
+        thisTab.parsedFile = processMarkdownFile(fs.readFileSync(path.join(root, thisTab.filename), 'utf8'));
+    }
+}
+
 /**
  * Returns and parses the files in the support folder.
  */

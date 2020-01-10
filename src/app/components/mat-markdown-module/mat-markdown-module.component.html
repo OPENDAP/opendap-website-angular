@@ -1,0 +1,21 @@
+<app-navigation-dock *ngIf="headings" [ids]="headings" [scrollOffset]=170></app-navigation-dock>
+
+<div *ngIf="data" class="markdown-body markdown">
+    <div *ngFor="let thisSection of data">
+        <h1 id="{{thisSection.id}}">
+            {{thisSection.title}}
+        </h1>
+
+        <div *ngIf="thisSection.sectionType == 'standard'" [innerHTML]="thisSection.parsedFile.md">
+            <!-- Content inserted via innerHTML. -->
+        </div>
+
+        <mat-tab-group *ngIf="thisSection.sectionType == 'tabbed'" dynamicHeight>
+            <mat-tab *ngFor="let thisTab of thisSection.tabs" label="{{thisTab.parsedFile.title}}">
+                <mat-card [innerHTML]="thisTab.parsedFile.md" class="tab-content">
+                    <!-- Content inserted via innerHTML. -->
+                </mat-card>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

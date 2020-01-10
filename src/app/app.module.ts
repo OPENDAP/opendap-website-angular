@@ -44,6 +44,7 @@ import { FaqSingleSectionComponent } from './components/faq/faq-single-section/f
 import { NotFoundComponent } from './components/navigation/not-found/not-found.component';
 import { SoftwareComponent } from './components/content-heavy/software/software.component';
 import { MarkdownComponent } from './components/markdown/markdown.component';
+import { MatMarkdownModule } from './components/mat-markdown-module/mat-markdown-module.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { MarkdownComponent } from './components/markdown/markdown.component';
     NotFoundComponent,
     SoftwareComponent,
     MarkdownComponent,
+    MatMarkdownModule,
   ],
   imports: [
     BrowserModule,

@@ -11,20 +11,22 @@ import { SupportComponent } from './components/support/support.component';
 import { FaqSingleSectionComponent } from './components/faq/faq-single-section/faq-single-section.component';
 import { NotFoundComponent } from './components/navigation/not-found/not-found.component';
 import { SoftwareComponent } from './components/content-heavy/software/software.component';
+import { MatMarkdownModule } from './components/mat-markdown-module/mat-markdown-module.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'releases/:version', component: ReleasesPageComponent },
+  { path: 'test', component: MatMarkdownModule },
   { path: 'about', component: AboutUsComponent },
-  { path: 'hyrax', component: HyraxComponent },
   { path: 'support', component: SupportComponent },
   { path: 'support/faq', component: FaqComponent },
   { path: 'support/faq/:article', component: FaqSingleSectionComponent },
   { path: 'software', component: SoftwareComponent },
+  { path: 'software/hyrax', component: HyraxComponent },
+  { path: 'software/hyrax/releases/:version', component: ReleasesPageComponent },
   { path: 'devtools/boilerplate', component: BoilerplateMakerComponent },
   { path: 'devtools/boilerplate/:fixVersion', component: BoilerplateEditorComponent },
   { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: '/404' }
+  { path: '**', redirectTo: '/404' },
 ];
 
 @NgModule({

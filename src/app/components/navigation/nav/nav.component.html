@@ -7,13 +7,18 @@
 
     <ul>
         <li>
-            <a routerLink="/hyrax"><button mat-button>Hyrax</button></a>
-        </li>
-        <li>
-            <button mat-button [matMenuTriggerFor]="menu">Releases</button>
-            <mat-menu #menu="matMenu">
-                <a *ngFor="let version of versions" routerLink="/releases/{{version}}">
-                    <button mat-menu-item>{{version}}</button>
+            <button mat-button [matMenuTriggerFor]="softwareMenu">Software</button>
+            <mat-menu #softwareMenu="matMenu">
+                <a routerLink="/software">
+                    <button mat-menu-item>Software Home</button>
+                </a>
+                <a routerLink="/software/hyrax">            
+                    <button mat-menu-item [matMenuTriggerFor]="menu">Hyrax</button>
+                    <mat-menu #menu="matMenu">
+                        <a *ngFor="let version of versions" routerLink="software/hyrax/releases/{{version}}">
+                            <button mat-menu-item>{{version}}</button>
+                        </a>
+                    </mat-menu>
                 </a>
             </mat-menu>
         </li>
@@ -29,7 +34,7 @@
             </mat-menu>
         </li>
         <li>
-            <a routerLink="/about"><button mat-button>About Us</button></a>
+            <a routerLink="/about"><button mat-button>About OPeNDAP</button></a>
         </li>
     </ul>
 </nav>
