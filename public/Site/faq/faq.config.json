@@ -1,0 +1,46 @@
+{
+    "root": "public/Site/support/faq",
+    "sections": [
+        {
+            "sectionType": "tabbed",
+            "title": "Frequently Asked Questions",
+            "id": "faq",
+            "tabs": [
+                {
+                    "sectionType": "accordian",
+                    "title": "General",
+                    "id": "general",
+                    "expandables": [
+                        {
+                            "sectionType": "expandable",
+                            "filename": "01_general/announce-dataset.md",
+                            "parsedFile": ""
+                        },
+                        {
+                            "sectionType": "expandable",
+                            "filename": "01_general/back-forward-compatibility.md",
+                            "parsedFile": ""
+                        }
+                    ]
+                },
+                {
+                    "sectionType": "accordian",
+                    "title": "Client Issues",
+                    "id": "client-issues",
+                    "expandables": [
+                        {
+                            "sectionType": "expandable",
+                            "filename": "02_client-issues/build-matlab-server-and-client.md",
+                            "parsedFile": ""
+                        },
+                        {
+                            "sectionType": "expandable",
+                            "filename": "02_client-issues/building-dods.md",
+                            "parsedFile": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -13,11 +13,11 @@ const converter = new showdown.Converter();
 
 app.use(cors());
 
- //-------------------- JIRA --------------------//
+//-------------------- JIRA --------------------//
 
- /**
-  * Returns a Jira issue from OPeNDAP's Jira server.
-  */
+/**
+ * Returns a Jira issue from OPeNDAP's Jira server.
+ */
 app.route('/api/jira/:issue').get((req, res) => {
     request(`https://opendap.atlassian.net/rest/api/2/issue/${req.params['issue']}`, { json: true }, (err, thisRes) => {
         if (err) throw err;
@@ -66,13 +66,17 @@ app.route('/api/content/support').get((req, res) => {
     res.status(200).send(parseConfigFile('support'));
 });
 
+app.route('/api/content/faqNew').get((req, res) => {
+    res.status(200).send(parseConfigFile('faq'));
+});
+
 function parseConfigFile(pageID) {
     let fileData = JSON.parse(fs.readFileSync(`public/site/${pageID}/${pageID}.config.json`, 'utf8'));
 
-    for(let thisSection of fileData.sections) {
-        if(thisSection.sectionType === "standard") {
+    for (let thisSection of fileData.sections) {
+        if (thisSection.sectionType === "standard") {
             parseStandardSection(fileData.root, thisSection);
-        } else if(thisSection.sectionType === "tabbed") {
+        } else if (thisSection.sectionType === "tabbed") {
             parseTabbedSection(fileData.root, thisSection);
         }
     }
@@ -85,31 +89,41 @@ function parseStandardSection(root, section) {
 }
 
 function parseTabbedSection(root, section) {
-    for(let thisTab of section.tabs) {
-        thisTab.parsedFile = processMarkdownFile(fs.readFileSync(path.join(root, thisTab.filename), 'utf8'));
+    for (let thisTab of section.tabs) {
+        if (thisTab.sectionType === "standard") {
+            thisTab.parsedFile = processMarkdownFile(fs.readFileSync(path.join(root, thisTab.filename), 'utf8'));
+        } else if (thisTab.sectionType === "accordian") {
+            parseAccordian(root, thisTab);
+        }
     }
 }
 
-
-
-
+function parseAccordian(root, section) {
+    for (let thisPanel of section.expandables) {
+        if (thisPanel.sectionType === "expandable") {
+            thisPanel.parsedFile = processMarkdownFile(fs.readFileSync(path.join(root, thisPanel.filename), 'utf8'));
+        }
+    }
+}
 
 /**
  * Returns and parses the files in the FAQ folder.
  */
 app.route('/api/content/faq').get((req, res) => {
-    let files = fs.readdirSync('public/Site/support/faq');
+    let files = fs.readdirSync('public/Site/faq');
     let toReturn = [];
 
     for (const thisDir of files) {
-        let thisFAQSection = [];
+        if (fs.lstatSync(`public/site/faq/${thisDir}`).isDirectory()) {
+            let thisFAQSection = [];
 
-        for (const thisFAQ of fs.readdirSync(`public/Site/support/faq/${thisDir}`)) {
-            let faqSection = fs.readFileSync(`public/Site/support/faq/${thisDir}/${thisFAQ}`, 'utf8');
-            thisFAQSection.push(processMarkdownFile(faqSection));
+            for (const thisFAQ of fs.readdirSync(`public/Site/faq/${thisDir}`)) {
+                let faqSection = fs.readFileSync(`public/Site/faq/${thisDir}/${thisFAQ}`, 'utf8');
+                thisFAQSection.push(processMarkdownFile(faqSection));
+            }
+
+            toReturn.push(thisFAQSection);
         }
-
-        toReturn.push(thisFAQSection);
     }
 
     res.status(200).send(toReturn);
@@ -118,14 +132,14 @@ app.route('/api/content/faq').get((req, res) => {
 app.route('/api/content/faq/:articleTitle').get((req, res) => {
     let fileName = `${req.params['articleTitle']}.md`;
 
-    let files = fs.readdirSync('public/Site/support/faq');
+    let files = fs.readdirSync('public/Site/faq');
 
     for (const thisDir of files) {
-        
-        let faqSection = fs.readdirSync(`public/Site/support/faq/${thisDir}`);
 
-        if(faqSection.includes(fileName)) {
-            let file = fs.readFileSync(`public/Site/support/faq/${thisDir}/${fileName}`, 'utf8');
+        let faqSection = fs.readdirSync(`public/Site/faq/${thisDir}`);
+
+        if (faqSection.includes(fileName)) {
+            let file = fs.readFileSync(`public/Site/faq/${thisDir}/${fileName}`, 'utf8');
             res.status(200).send(processMarkdownFile(file));
         }
     }
@@ -144,7 +158,7 @@ function processMarkdownFile(md, id = 0) {
     let mds = md.substring(split.length + 3, md.length);
     let tags = md.split("##TAGS##");
 
-    if(tags.length == 2) {
+    if (tags.length == 2) {
         mds = tags[0].substring(split.length + 3, md.length);;
         tags = tags[1].substr(2, tags[1].length).split(",");
     } else {
@@ -159,11 +173,11 @@ function processMarkdownFile(md, id = 0) {
     });
 }
 
- //-------------------- VERSIONS --------------------//
+//-------------------- VERSIONS --------------------//
 
- /**
-  * Returns all the versions of Hyrax that are currently on the server.
-  */
+/**
+ * Returns all the versions of Hyrax that are currently on the server.
+ */
 app.route('/api/versions').get((req, res) => {
     fs.readdir('public/Hyrax', (err, files) => {
         if (err) throw err;

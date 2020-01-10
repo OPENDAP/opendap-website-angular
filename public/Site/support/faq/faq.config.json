@@ -1,0 +1,33 @@
+{
+    "root": "public/Site/support/faq",
+    "sections": [
+        {
+            "sectionType": "tabbed",
+            "title": "Documentation",
+            "id": "documentation",
+            "tabs": [
+                {
+                    "sectionType": "accordian",
+                    "title": "General",
+                    "id": "general",
+                    "expandables": [
+                        {
+                            "sectionType": "expansion",
+                            "filename": "01_general/announce-dataset.md",
+                            "parsedFile": ""
+                        }
+                    ]
+                },
+                {
+
+                },
+                {
+
+                },
+                {
+
+                }
+            ]
+        }
+    ]
+}

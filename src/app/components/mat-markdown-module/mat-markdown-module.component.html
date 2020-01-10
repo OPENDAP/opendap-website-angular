@@ -1,8 +1,8 @@
-<app-navigation-dock *ngIf="headings" [ids]="headings" [scrollOffset]=170></app-navigation-dock>
+<app-navigation-dock *ngIf="headings && showNav" [ids]="headings" [scrollOffset]=0></app-navigation-dock>
 
 <div *ngIf="data" class="markdown-body markdown">
     <div *ngFor="let thisSection of data.sections">
-        <h1 id="{{thisSection.id}}">
+        <h1 *ngIf=showTitle id="{{thisSection.id}}">
             {{thisSection.title}}
         </h1>
 
@@ -11,11 +11,29 @@
         </div>
 
         <mat-tab-group *ngIf="thisSection.sectionType == 'tabbed'" dynamicHeight>
-            <mat-tab *ngFor="let thisTab of thisSection.tabs" label="{{thisTab.parsedFile.title}}">
-                <mat-card [innerHTML]="thisTab.parsedFile.md" class="tab-content">
+            <mat-tab *ngFor="let thisTab of thisSection.tabs" label="{{thisTab.title}}">
+
+                <mat-card *ngIf="thisTab.sectionType == 'standard'" [innerHTML]="thisTab.parsedFile.md"
+                    class="tab-content">
                     <!-- Content inserted via innerHTML. -->
                 </mat-card>
+
+                <mat-accordion *ngIf="thisTab.sectionType == 'accordian'" class="tab-content">
+                    <mat-expansion-panel *ngFor="let thisExpandable of thisTab.expandables">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{thisExpandable.parsedFile.title}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <div [innerHTML]="thisExpandable.parsedFile.md">
+                            <!-- Content inserted via innerHTML. -->
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
             </mat-tab>
         </mat-tab-group>
+
+
     </div>
 </div>

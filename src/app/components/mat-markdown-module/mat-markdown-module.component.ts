@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { DataReaderService } from 'src/app/data-reader.service';
 
 @Component({
@@ -7,10 +7,13 @@ import { DataReaderService } from 'src/app/data-reader.service';
   styleUrls: [
     './mat-markdown-module.component.scss',
     '../markdown-style.scss'
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class MatMarkdownModule implements OnInit {
   @Input() pageID: string;
+  @Input() showNav = true;
+  @Input() showTitle = true;
 
   data: any;
   headings: any[];
